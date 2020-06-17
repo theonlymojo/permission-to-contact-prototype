@@ -10,13 +10,13 @@ router.post('/v1/name', function (req, res) {
   var install = req.session.data['nation']
 
   if (install == "Scotland"){
-    res.redirect('/nation-redirect')
+    res.redirect('/v1/nation-redirect')
   }
   if (install == "Wales"){
-    res.redirect('/nation-redirect')
+    res.redirect('/v1/nation-redirect')
   }
   if (install == "Northern Ireland"){
-    res.redirect('/nation-redirect')
+    res.redirect('/v1/nation-redirect')
   }
   else {
     res.redirect('/v1/name')

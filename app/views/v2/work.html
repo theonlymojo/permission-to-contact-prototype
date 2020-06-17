@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+
+{% set version = "v2" %}
+{% set backLink = "postcode" %}
+{% set heading = "What do you do for work?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/tested" method="post" class="form">
+
+       <h1 class="nhsuk-heading-l">{{ heading }}</h1>
+
+       <p>If you do more than one type of work, select your main area of work.</p>
+
+       {% from 'select/macro.njk' import select %}
+
+       {{ select({
+         "id": "work",
+         "name": "work",
+         "label": {
+           "text": "Select what you do for work"
+         },
+         "items": [
+           {
+             "value": "Health care",
+             "text": "Health care"
+           },
+           {
+             "value": "Social care",
+             "text": "Social care"
+           },
+           {
+            "value": "Medical supply and distribution",
+            "text": "Medical supply and distribution"
+          },
+          {
+            "value": "Education and childcare",
+            "text": "Education and childcare"
+          },
+          {
+            "value": "Prisons and judiciary system",
+            "text": "Prisons and judiciary system"
+          },
+          {
+            "value": "Funeral industry",
+            "text": "Funeral industry"
+          },
+          {
+            "value": "Local and national government",
+            "text": "Local and national government"
+          },
+          {
+            "value": "Food production and distribution",
+            "text": "Food production and distribution"
+          },
+          {
+            "value": "Defence",
+            "text": "Defence"
+          },
+          {
+            "value": "Police",
+            "text": "Police"
+          },
+          {
+            "value": "Fire service",
+            "text": "Fire service"
+          },
+          {
+            "value": "Transport",
+            "text": "Transport"
+          },
+          {
+            "value": "Utilities, communications, broadcasting and financial services",
+            "text": "Utilities, communications, broadcasting and financial services"
+          },
+          {
+            "value": "Volunteers",
+            "text": "Volunteers"
+          },
+          {
+            "value": "Assisted digital referral",
+            "text": "Assisted digital referral"
+          },
+          {
+            "value": "I am an essential worker in another area",
+            "text": "I am an essential worker in another area"
+          }
+         ]
+       }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
