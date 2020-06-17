@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 
-{% set version = "v2" %}
+{% set version = "v1-1" %}
 {% set backLink = "email" %}
 {% set heading = "What is your date of birth?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
@@ -9,7 +9,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/postcode" method="post" class="form">
+      <form action="/{{ version }}/work" method="post" class="form">
 
         {{ dateInput({
           "id": "dob",

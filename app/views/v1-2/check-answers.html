@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 
-{% set version = "v2" %}
+{% set version = "v1-2" %}
 {% set heading = "Check your answers" %}
 
 {% block beforeMain %}
@@ -15,19 +15,6 @@
       <p>Check your information is correct before sending it.</p>
 
       <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-7">
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-              Country
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-            {{ data['country'] }}
-          </dd>
-          <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="/{{ version }}/country">
-              Change <span class="nhsuk-u-visually-hidden">Country</span>
-            </a>
-          </dd>
-        </div>
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
               Name
@@ -64,6 +51,19 @@
           <dd class="nhsuk-summary-list__actions">
             <a class="nhsuk-link" href="/{{ version }}/dob">
               Change <span class="nhsuk-u-visually-hidden">Date of birth</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+              Country
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['country'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/country">
+              Change <span class="nhsuk-u-visually-hidden">Country</span>
             </a>
           </dd>
         </div>
