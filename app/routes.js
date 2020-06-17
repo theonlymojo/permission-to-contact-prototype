@@ -24,4 +24,18 @@ router.post('/v1/name', function (req, res) {
 
 })
 
+// Tested routing - V2
+router.post('/v2/test-results', function (req, res) {
+
+  var install = req.session.data['tested']
+
+  if (install == "Yes"){
+    res.redirect('/v2/test-results')
+  }
+  else {
+    res.redirect('/v2/check-answers')
+  }
+
+})
+
 module.exports = router;
