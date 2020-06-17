@@ -10,3 +10,27 @@
 ///////////////////////////////////////////
 // Add your custom CSS/Sass styles below... 
 ///////////////////////////////////////////
+
+.nhsuk-back-link {
+  @include nhsuk-responsive-margin(4, "top");
+  margin-bottom: 0;
+}
+
+.app-alert {
+  @include top-and-bottom(); /* [1] */
+  @include nhsuk-responsive-margin(5, 'bottom');
+  @include nhsuk-responsive-padding(4);
+
+  border: 4px solid $color_nhsuk-green;
+  position: relative;
+
+  @include mq($media-type: print) {
+    border-color: $nhsuk-print-text-color;
+  }
+
+  .app-alert__heading {
+    @include nhsuk-responsive-margin(4, 'bottom');
+  }
+
+}
+

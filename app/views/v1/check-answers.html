@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% set version = "v1" %}
+{% set heading = "Check your answers" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ heading }}</h1>
+
+      <p>Check your information is correct before sending it.</p>
+
+      <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-7">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+              Name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['first-name'] }} {{ data['last-name'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/name">
+              Change <span class="nhsuk-u-visually-hidden">Name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+              Email
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['email'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/email">
+              Change <span class="nhsuk-u-visually-hidden">Email</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+              Date of birth
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['dob-day'] }} {{ data['dob-month'] | monthToWord }} {{ data['dob-year'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/dob">
+              Change <span class="nhsuk-u-visually-hidden">Date of birth</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Postcode
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{ data['postcode'] }}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a class="nhsuk-link" href="/{{ version }}/postcode">
+                Change <span class="nhsuk-u-visually-hidden">Postcode</span>
+              </a>
+            </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Job type
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{ data['job'] }}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a class="nhsuk-link" href="/{{ version }}/job">
+                Change <span class="nhsuk-u-visually-hidden">Job type</span>
+              </a>
+            </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Tested
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{ data['tested'] }}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a class="nhsuk-link" href="/{{ version }}/tested">
+                Change <span class="nhsuk-u-visually-hidden">Tested</span>
+              </a>
+            </dd>
+        </div>
+      </dl>
+
+      <a class="nhsuk-button" href="/{{ version }}/confirmation">
+       Send
+      </a>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% set version = "v1" %}
+{% set backLink = "start" %}
+{% set heading = "Nation" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/name" method="post" class="form">
+
+        {{ radios({
+        "idPrefix": "nation",
+        "name": "nation",
+        "fieldset": {
+          "legend": {
+            "text": heading,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "England",
+            "text": "England",
+            "name": "England",
+            "checked": checked("nation", "England")
+          },
+          {
+            "value": "Scotland",
+            "text": "Scotland",
+            "name": "Scotland",
+            "checked": checked("nation", "Scotland")
+          },
+          {
+            "value": "Wales",
+            "text": "Wales",
+            "name": "Wales",
+            "checked": checked("nation", "Wales")
+          },
+          {
+            "value": "Northern Ireland",
+            "text": "Northern Ireland",
+            "name": "Northern Ireland",
+            "checked": checked("nation", "Northern Ireland")
+          }
+        ]
+      }) }}
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
