@@ -57,11 +57,11 @@ router.post('/v1-2/name', function (req, res) {
 
   var install = req.session.data['18orover']
 
-  if (install == "Yes"){
-    res.redirect('/v1-2/name')
+  if (install == "No"){
+    res.redirect('/v1-2/under18')
   }
   else {
-    res.redirect('/v1-2/under18')
+    res.redirect('/v1-2/name')
   }
 
 })
