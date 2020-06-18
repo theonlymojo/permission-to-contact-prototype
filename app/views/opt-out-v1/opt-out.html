@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% set version = "opt-out-v1" %}
+{% set heading = "Withdraw your interest from the clinical trials" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/opt-out-confirm" method="post" class="form">
+
+       <h1 class="nhsuk-u-margin-bottom-5">{{ heading }}</h1>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-1" for="opt-out-email">
+            Email address
+          </label>
+          <span class="nhsuk-hint">
+            Enter the email address you used to register your interest
+          </span>
+          <input class="nhsuk-input" id="opt-out-email" name="opt-out-email" type="email" autocomplete="email" spellcheck="false" value="{{ data['opt-out-email'] }}">
+        </div>
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -94,4 +94,18 @@ router.post('/v1-2/postcode', function (req, res) {
 
 })
 
+// Opt out confirm email - v1
+router.post('/opt-out-v1/opt-out-confirmation', function (req, res) {
+
+  var install = req.session.data['opt-out-email-confirm']
+
+  if (install == "No, that is not my email address"){
+    res.redirect('/opt-out-v1/opt-out')
+  }
+  else {
+    res.redirect('/opt-out-v1/opt-out-confirmation')
+  }
+
+})
+
 module.exports = router;
