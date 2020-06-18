@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "v1-2" %}
-{% set heading = "Check your answers" %}
+{% set heading = "Check your answers before sending your application" %}
 
 {% block beforeMain %}
 {% endblock %}
@@ -11,8 +11,6 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <h1>{{ heading }}</h1>
-
-      <p>Check your information is correct before sending it.</p>
 
       <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-7">
         <div class="nhsuk-summary-list__row">
@@ -69,6 +67,7 @@
         </div>
 
         {% if (data['country'] == "Northern Ireland") %}
+            {% if (data['ni-town'] >= "0") %}
               <div class="nhsuk-summary-list__row">
                 <dt class="nhsuk-summary-list__key">
                   Town
@@ -82,6 +81,7 @@
                   </a>
                 </dd>
               </div>
+              {% else %}
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
                 Postcode
@@ -95,6 +95,7 @@
                 </a>
               </dd>
           </div>
+          {% endif %}
 
         {% else %}
         <div class="nhsuk-summary-list__row">
