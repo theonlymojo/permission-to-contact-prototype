@@ -1,7 +1,11 @@
 {% extends 'layout.html' %}
 
 {% set version = "v1-2" %}
-{% set backLink = "postcode" %}
+{% if (data['country'] !== "Northern Ireland") %}
+  {% set backLink = "postcode" %}
+{% else %}
+  {% set backLink = "NI-postcode" %}
+{% endif %}
 {% set heading = "What do you do for work?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
