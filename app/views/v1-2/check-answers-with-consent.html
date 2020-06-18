@@ -157,35 +157,49 @@
           </dd>
         </div>
       {% endif %}
-
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">
-          Permission
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          {{ data['give-permission'] }}
-        </dd>
-        <dd class="nhsuk-summary-list__actions">
-          <a class="nhsuk-link" href="/{{ version }}/permission">
-            Change <span class="nhsuk-u-visually-hidden">Permission</span>
-          </a>
-        </dd>
-      </div>
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">
-          Receive more information from NHS Digital about these trials 
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          {{ data['hear-from-nhsd'] }}
-        </dd>
-        <dd class="nhsuk-summary-list__actions">
-          <a class="nhsuk-link" href="/{{ version }}/hear-from-nhsd">
-            Change <span class="nhsuk-u-visually-hidden">Receive more information from NHS Digital about these trials</span>
-          </a>
-        </dd>
-      </div>
       
       </dl>
+
+      <h2>Consent</h2>
+      <p>I give permission for a researcher to contact me about taking part in clinical trials to find a vaccine for coronavirus (COVID-19).</p>
+      <p>A clinical trial compares one medicine or treatment with another. People who work on clinical trials are called researchers.</p>
+      <p>I understand a researcher will only contact me if I’m eligible for a clinical trial.</p>
+      <p>I understand I can withdraw my permission at any time. I can find out how to do this in the email I’ll receive when I give my permission here.</p>
+      <p>I understand I can find out more about taking part in clinical trials at the <a target=blank href="https://www.bepartofresearch.nihr.ac.uk/">Be a part of research</a> website (opens in a new window).</p>
+      <p>There are lots of clinical trials going on around treatment and prevention of coronavirus.</p>
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset">
+          <div class="nhsuk-checkboxes nhsuk-checkboxes--small">
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input" id="agree-consent" name="agree-consent" type="checkbox" value="agree-consent">
+              <label class="nhsuk-label nhsuk-checkboxes__label" for="agree-consent">
+                I agree
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <h2>Do you want to receive more information from NHS Digital about these trials?</h2>
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset">
+          <div class="nhsuk-radios nhsuk-radios--small">
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="nhsd-more-info" name="nhsd-more-info" type="radio" value="yes">
+              <label class="nhsuk-label nhsuk-radios__label" for="nhsd-more-info">
+                Yes, I want to receive more information from NHS Digital about these trials.
+              </label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="nhsd-more-info-2" name="nhsd-more-info" type="radio" value="no">
+              <label class="nhsuk-label nhsuk-radios__label" for="nhsd-more-info-2">
+                No, I do not want to receive more information from NHS Digital about these trials.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
       
       <a class="nhsuk-button" href="/{{ version }}/confirmation">
        Send

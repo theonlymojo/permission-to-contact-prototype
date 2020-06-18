@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% set version = "v1-2" %}
+{% if (data['tested'] == "Yes") %}
+  {% set backLink = "test-results" %}
+{% else %}
+  {% set backLink = "tested" %}
+{% endif %}
+{% set heading = "Your permission" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ heading }}</h1>
+
+      <p>I give permission for a researcher to contact me about taking part in clinical trials to find a vaccine for coronavirus (COVID-19).</p>
+      <p>A clinical trial compares one medicine or treatment with another. People who work on clinical trials are called researchers.</p>
+      <p>I understand:</p>
+      <ul>
+      <li>a researcher will only contact me if I’m eligible for a clinical trial</li>
+      <li>I can withdraw my permission at any time. I can find out how to do this in the email I’ll receive when I give my permission here</li>
+      <li>I can find out more about taking part in clinical trials at the <a target=blank href="https://www.bepartofresearch.nihr.ac.uk/">Be a part of research</a> website (opens in a new window)</li>
+    </ul>
+      <form action="/{{ version }}/hear-from-nhsd" method="post" class="form">
+
+      {{ checkboxes({
+        "idPrefix": "give-permission",
+        "name": "give-permission",
+        "items": [
+          {
+            "value": "I give my permission",
+            "text": "I give my permission",
+            "checked": checked("give-permission", "I give my permission")
+          }
+        ]
+      }) }}
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

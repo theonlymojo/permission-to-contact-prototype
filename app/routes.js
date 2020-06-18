@@ -75,7 +75,7 @@ router.post('/v1-2/test-results', function (req, res) {
     res.redirect('/v1-2/test-results')
   }
   else {
-    res.redirect('/v1-2/check-answers')
+    res.redirect('/v1-2/permission')
   }
 
 })
