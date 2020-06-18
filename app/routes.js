@@ -38,6 +38,34 @@ router.post('/v1-1/test-results', function (req, res) {
 
 })
 
+// Over 18 routing - V1.1
+router.post('/v1-1/country', function (req, res) {
+
+  var install = req.session.data['18orover']
+
+  if (install == "Yes"){
+    res.redirect('/v1-1/country')
+  }
+  else {
+    res.redirect('/v1-1/under18')
+  }
+
+})
+
+// Over 18 routing - V1.2
+router.post('/v1-2/name', function (req, res) {
+
+  var install = req.session.data['18orover']
+
+  if (install == "Yes"){
+    res.redirect('/v1-2/name')
+  }
+  else {
+    res.redirect('/v1-2/under18')
+  }
+
+})
+
 // Tested routing - V1.2
 router.post('/v1-2/test-results', function (req, res) {
 
