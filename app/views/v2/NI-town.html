@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% set version = "v2" %}
+{% set backLink = "NI-postcode" %}
+{% set heading = "What is your town or village?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/work" method="post" class="form">
+
+        {{ input({
+          "label": {
+            "text": heading,
+            "classes": "nhsuk-label--l",
+            "isPageHeading": true
+          },
+          "id": "ni-town",
+          "name": "ni-town",
+          "classes": "nhsuk-input",
+          "value": data['ni-town']
+        }) }}
+
+        {{ details({
+          "text": "Why we are asking this question",
+          "HTML": "
+          <p>We need to know your town or village so researchers can contact you about relevant coronavirus vaccine trials.</p>
+          "
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

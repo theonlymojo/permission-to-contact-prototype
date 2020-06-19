@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% set version = "v2" %}
+{% set heading = "Permission to contact" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ heading }}</h1>
+
+      <h2>What this service is</h2>
+
+      <p>Use this service to give permission (consent) for researchers to contact you about taking part in clinical trials for a coronavirus (COVID-19) vaccine.</p>
+
+      <h2>Who can use this service</h2>
+      <p>You can use this service if:</p>
+      <ul>
+        <li>you are 18 or over</li>
+        <li>and you live in the UK</li>
+      </ul>
+
+
+      <h2>What this service will ask for</h2>
+      <p>We'll ask you some questions including:
+      <ul>
+        <li>your name</li>
+        <li>date of birth</li>
+        <li>email address</li>
+        <li>postcode</li>
+      </ul>
+      <p>Then we'll ask for your permission to contact you.</p>
+
+      <a href="/{{ version }}/dob" class="nhsuk-button nhsuk-u-margin-bottom-8">
+        Start now
+      </a>
+
+    </div>
+  </div>
+{% endblock %}
