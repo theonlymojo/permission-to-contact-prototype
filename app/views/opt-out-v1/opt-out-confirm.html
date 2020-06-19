@@ -11,44 +11,11 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      <h1 class="nhsuk-card__heading nhsuk-heading-l nhsuk-u-margin-bottom-4">Confirm that you want to withdraw your interest from the clinical trials</h1>
       <form action="/{{ version }}/opt-out-confirmation" method="post" class="form">
-
-        <div class="nhsuk-form-group">
-
-          <fieldset class="nhsuk-fieldset">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              <h1 class="nhsuk-fieldset__heading">
-                <span class="nhsuk-caption-l">Withdraw your interest</span>
-                Can you confirm that {% if (data['opt-out-email']) %}{{ data['opt-out-email'] }}{% else %}{{ data['email'] }}{% endif %} is your email address?
-              </h1>
-            </legend>
-
-            <div class="nhsuk-radios">
-
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="opt-out-email-confirm-yes" name="opt-out-email-confirm" type="radio" value="Yes, that is correct">
-                <label class="nhsuk-label nhsuk-radios__label" for="opt-out-email-confirm-yes">
-                  Yes, that is correct
-                </label>
-              </div>
-
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="opt-out-email-confirm-no" name="opt-out-email-confirm" type="radio" value="No, that is not my email address">
-                <label class="nhsuk-label nhsuk-radios__label" for="opt-out-email-confirm-no">
-                  No, that is not my email address
-                </label>
-              </div>
-
-            </div>
-          </fieldset>
-
-        </div>
-
-        {{ button({
-          "text": "Continue"
-        }) }}
-
+        <input type="submit" class="nhsuk-button" value="Withdraw my interest">
       </form>
+      <a href="/{{ version }}/opt-out">I have changed my mind</a>
 
     </div>
   </div>
