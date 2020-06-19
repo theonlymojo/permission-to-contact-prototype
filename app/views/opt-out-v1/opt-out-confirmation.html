@@ -11,11 +11,11 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <div class="nhsuk-alert nhsuk-u-margin-bottom-5">
+      <div class="nhsuk-alert nhsuk-alert--success nhsuk-u-margin-bottom-5">
         <h1 class="nhsuk-heading-l">{{ heading }}</h1>
       </div>
 
-      <p>We have sent an email to <strong>{% if (data['opt-out-email']) %}{{ data['opt-out-email'] }}{% else %}{{ data['email'] }}{% endif %}</strong> to confirm you have withdrawn your interest.</p>
+      <p>We've sent a confirmation email to <strong>{% if (data['opt-out-email']) %}{{ data['opt-out-email'] }}{% else %}{{ data['email'] }}{% endif %}</strong></p>
 
     </div>
   </div>

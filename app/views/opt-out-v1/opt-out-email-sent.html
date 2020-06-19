@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
-{% set version = "v1-2" %}
-{% set heading = "One more step" %}
+{% set version = "opt-out-v1" %}
+{% set heading = "Confirm your email address" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeMain %}
@@ -11,12 +11,12 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-u-margin-bottom-4">{{ heading }}</h1>
+      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">{{ heading }}</h1>
 
       <p>We've sent you an email. Please click on the link in the email to confirm your address.</p>
 
       <div class="nhsuk-alert">
-        <p class="nhsuk-u-font-weight-bold">Your interest will not be registered until you click the link in the email.</p>
+        <p class="nhsuk-u-font-weight-bold">You can't withdraw your interest until you click the link in the email.</p>
       </div>
 
       {{ details({
@@ -29,6 +29,8 @@
         </ul>
         "
       }) }}
+
+      <a href="/{{ version }}/opt-out-confirm-email" class="app-small-text">Skip</a>
 
     </div>
   </div>

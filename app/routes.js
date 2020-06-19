@@ -227,15 +227,15 @@ router.post('/v2/email', function (req, res) {
 })
 
 // Opt out confirm email - v1
-router.post('/opt-out-v1/opt-out-confirmation', function (req, res) {
+router.post('/opt-out-v1/opt-out-confirm', function (req, res) {
 
-  var install = req.session.data['opt-out-email-confirm']
+  var install = req.session.data['opt-out-confirm-email']
 
   if (install == "No, that is not my email address"){
     res.redirect('/opt-out-v1/opt-out')
   }
   else {
-    res.redirect('/opt-out-v1/opt-out-confirmation')
+    res.redirect('/opt-out-v1/opt-out-confirm')
   }
 
 })
