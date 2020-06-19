@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% set version = "v2" %}
+{% set backLink = "ethnic-group" %}
+{% set heading = "What is your email address?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/country" method="post" class="form">
+
+        <div class="nhsuk-form-group">
+          <h1 class="nhsuk-label-wrapper">
+            <label class="nhsuk-label nhsuk-label--l" for="email">
+              {{ heading }}
+            </label>
+          </h1>
+          <input class="nhsuk-input" id="email" name="email" type="email" autocomplete="email" spellcheck="false" value="{{ data['email'] }}">
+        </div>
+
+        {{ details({
+          "text": "Why we are asking this question",
+          "HTML": "
+          <p>We need your email address to contact you about coronavirus vaccine trials if you give us permission.</p>
+          <p>We'll also send you a confirmation email to explain what you've given us permission to do, what will happen next and how to withdraw your permission if you want to.</p>
+          "
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% set version = "v2" %}
+{% set backLink = "work" %}
+{% set heading = "Have you had a coronavirus test?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/test-results" method="post" class="form">
+
+       {{ radios({
+        "idPrefix": "tested",
+        "name": "tested",
+        "fieldset": {
+          "legend": {
+            "text": heading,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "Yes",
+            "text": "Yes",
+            "name": "Yes",
+            "checked": checked("tested", "Yes")
+          },
+          {
+            "value": "No",
+            "text": "No",
+            "name": "No",
+            "checked": checked("tested", "No")
+          }
+        ]
+      }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
