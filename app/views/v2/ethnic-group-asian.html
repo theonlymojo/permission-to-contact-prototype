@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 
-{% set PROTOTYPEURL = "sex-and-ethnicity" %}
+{% set version = "v2" %}
 {% set backLink = "ethnic-group" %}
 {% set heading = "Which one best describes your Asian or Asian British background?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
@@ -9,7 +9,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-    <form action="/{{ PROTOTYPEURL }}/postcode" method="post" class="form">
+      <form action="/{{ version }}/email" method="post" class="form">
 
       {% set asianOtherHtml %}
         {{ input({
