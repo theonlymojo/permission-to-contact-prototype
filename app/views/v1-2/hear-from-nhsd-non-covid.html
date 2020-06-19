@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% set version = "v1-2" %}
+{% set backLink = "hear-from-nhsd" %}
+{% set heading = "Do you want to receive information from NHS Digital about clinical trials that are not to do with coronavirus?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/check-answers" method="post" class="form">
+
+        {{ radios({
+          "idPrefix": "hear-from-nhsd-non-covid",
+          "name": "hear-from-nhsd-non-covid",
+          "fieldset": {
+            "legend": {
+              "text": heading,
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
+          },
+          "hint": {
+            "text": "If you choose yes, NHS Digital will contact you no later than X months from today."
+          },
+          "items": [
+            {
+              "value": "Yes, I want to receive information from NHS Digital about clinical trials that are not to do with coronavirus",
+              "text": "Yes, I want to receive information from NHS Digital about clinical trials that are not to do with coronavirus",
+              "name": "Yes, I want to receive information from NHS Digital about clinical trials that are not to do with coronavirus",
+              "checked": checked("hear-from-nhsd-non-covid", "Yes, I want to receive information from NHS Digital about clinical trials that are not to do with coronavirus")
+            },
+            {
+              "value": "No, I do not want to receive information from NHS Digital about clinical trials that are not to do with coronavirus",
+              "text": "No, I do not want to receive information from NHS Digital about clinical trials that are not to do with coronavirus",
+              "name": "No, I do not want to receive information from NHS Digital about clinical trials that are not to do with coronavirus",
+              "checked": checked("hear-from-nhsd-non-covid", "No, I do not want to receive information from NHS Digital about clinical trials that are not to do with coronavirus")
+            }
+          ]
+        }) }}
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% set version = "v1-2" %}
+{% set heading = "Sorry, only those living in the UK can take part in clinical trials" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ heading }}</h1>
+
+      <a href="/v1-2" class="nhsuk-button nhsuk-u-margin-bottom-8">
+        Start over
+      </a>
+
+    </div>
+  </div>
+{% endblock %}

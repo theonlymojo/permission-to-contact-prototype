@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "v1-2" %}
-{% set heading = "Check your answers before sending your application" %}
+{% set heading = "Check your answers before sending you permission" %}
 
 {% block beforeMain %}
 {% endblock %}
@@ -12,7 +12,22 @@
 
       <h1>{{ heading }}</h1>
 
+      <h2>Personal details</h2>
+
       <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-7">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+              Date of birth
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['dob-day'] }} {{ data['dob-month'] | monthToWord }} {{ data['dob-year'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/dob">
+              Change <span class="nhsuk-u-visually-hidden">Date of birth</span>
+            </a>
+          </dd>
+        </div>
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
               Name
@@ -41,27 +56,14 @@
         </div>
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-              Date of birth
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-            {{ data['dob-day'] }} {{ data['dob-month'] | monthToWord }} {{ data['dob-year'] }}
-          </dd>
-          <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="/{{ version }}/dob">
-              Change <span class="nhsuk-u-visually-hidden">Date of birth</span>
-            </a>
-          </dd>
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-              Country
+              Where you live
           </dt>
           <dd class="nhsuk-summary-list__value">
             {{ data['country'] }}
           </dd>
           <dd class="nhsuk-summary-list__actions">
             <a class="nhsuk-link" href="/{{ version }}/country">
-              Change <span class="nhsuk-u-visually-hidden">Country</span>
+              Change <span class="nhsuk-u-visually-hidden">Where you live</span>
             </a>
           </dd>
         </div>
@@ -112,8 +114,6 @@
           </dd>
       </div>
       {% endif %}
-
-
         
         <div class="nhsuk-summary-list__row">
             <dt class="nhsuk-summary-list__key">
@@ -128,6 +128,9 @@
               </a>
             </dd>
         </div>
+        </dl>
+        <h2>Coronavirus testing</h2>
+        <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-7">
         <div class="nhsuk-summary-list__row">
             <dt class="nhsuk-summary-list__key">
               Had a coronavirus test
@@ -158,22 +161,27 @@
         </div>
       {% endif %}
 
+      </dl>
+  
+  <h2>Permission and contact</h2>
+    <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-7">
+
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-          Permission
+          Your permission
         </dt>
         <dd class="nhsuk-summary-list__value">
           {{ data['give-permission'] }}
         </dd>
         <dd class="nhsuk-summary-list__actions">
           <a class="nhsuk-link" href="/{{ version }}/permission">
-            Change <span class="nhsuk-u-visually-hidden">Permission</span>
+            Change <span class="nhsuk-u-visually-hidden">Your permission</span>
           </a>
         </dd>
       </div>
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-          Receive more information from NHS Digital about these trials 
+          Receive information from NHS Digital about other trials around coronavirus treatment and prevention 
         </dt>
         <dd class="nhsuk-summary-list__value">
           {{ data['hear-from-nhsd'] }}
@@ -184,8 +192,20 @@
           </a>
         </dd>
       </div>
-      
-      </dl>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Receive information from NHS Digital about clinical trials that are not to do with coronavirus 
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['hear-from-nhsd'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/hear-from-nhsd">
+            Change <span class="nhsuk-u-visually-hidden">Receive more information from NHS Digital about these trials</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
       
       <a class="nhsuk-button" href="/{{ version }}/confirm-email">
        Send

@@ -17,7 +17,12 @@
       <h1>{{ heading }}</h1>
 
       <p>I give permission for a researcher to contact me about taking part in clinical trials to find a vaccine for coronavirus (COVID-19).</p>
-      <p>A clinical trial compares one medicine or treatment with another. People who work on clinical trials are called researchers.</p>
+      {{ details({
+        "text": "What is a clinical trial?",
+        "HTML": "
+        <p>A clinical trial compares one medicine or treatment with another. People who work on clinical trials are called researchers.</p>
+        "
+      }) }}
       <p>I understand:</p>
       <ul>
       <li>a researcher will only contact me if I’m eligible for a clinical trial</li>
@@ -25,15 +30,22 @@
       <li>I can find out more about taking part in clinical trials at the <a target=blank href="https://www.bepartofresearch.nihr.ac.uk/">Be a part of research</a> website (opens in a new window)</li>
     </ul>
       <form action="/{{ version }}/hear-from-nhsd" method="post" class="form">
-
-      {{ checkboxes({
+        
+      {{ radios({
         "idPrefix": "give-permission",
         "name": "give-permission",
         "items": [
           {
             "value": "I give my permission",
             "text": "I give my permission",
+            "name": "I give my permission",
             "checked": checked("give-permission", "I give my permission")
+          },
+          {
+            "value": "I do not give my permission",
+            "text": "I do not give my permission",
+            "name": "I do not give my permission",
+            "checked": checked("give-permission", "I do not give my permission")
           }
         ]
       }) }}

@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "v1-2" %}
-{% set backLink = "email" %}
+{% set backLink = " " %}
 {% set heading = "What is your date of birth?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
@@ -9,7 +9,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/country" method="post" class="form">
+      <form action="/{{ version }}/name" method="post" class="form">
 
         {{ dateInput({
           "id": "dob",
@@ -46,9 +46,7 @@
         {{ details({
           "text": "Why we are asking this question",
           "HTML": "
-          <p>We will not use this information to identify you.</p>
-          <p>We need this information to help us understand how coronavirus is affecting different age groups.</p>
-          <p>We may also combine our data with data from other organisations. This information will help us recognise your data if you complete other NHS surveys.</p>
+          <p>We need to know how old you are so researchers can contact you about relevant coronavirus vaccine trials.</p>
           "
         }) }}
 

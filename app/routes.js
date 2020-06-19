@@ -52,12 +52,27 @@ router.post('/v1-1/country', function (req, res) {
 
 })
 
-// Over 18 routing - V1.2
+/* Over 18 routing - V1.2
 router.post('/v1-2/name', function (req, res) {
 
   var install = req.session.data['18orover']
 
   if (install == "No"){
+    res.redirect('/v1-2/under18')
+  }
+  else {
+    res.redirect('/v1-2/name')
+  }
+
+})
+*/
+
+// Over 18 routing from DOB - V1.2
+router.post('/v1-2/name', function (req, res) {
+
+  var install = req.session.data['dob-year']
+
+  if (install > "2002"){
     res.redirect('/v1-2/under18')
   }
   else {
@@ -88,8 +103,25 @@ router.post('/v1-2/postcode', function (req, res) {
   if (install == "Northern Ireland"){
     res.redirect('/v1-2/NI-postcode')
   }
+  if (install == "None of these"){
+    res.redirect('/v1-2/outside-uk')
+  }
   else {
     res.redirect('/v1-2/postcode')
+  }
+
+})
+
+// Permission routing - V1.2
+router.post('/v1-2/hear-from-nhsd', function (req, res) {
+
+  var install = req.session.data['give-permission']
+
+  if (install == "I do not give my permission"){
+    res.redirect('/v1-2/no-permission')
+  }
+  else {
+    res.redirect('/v1-2/hear-from-nhsd')
   }
 
 })

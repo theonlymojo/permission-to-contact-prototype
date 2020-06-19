@@ -1,8 +1,8 @@
 {% extends 'layout.html' %}
 
 {% set version = "v1-2" %}
-{% set backLink = "dob" %}
-{% set heading = "Select your country" %}
+{% set backLink = "email" %}
+{% set heading = "Where do you live?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
@@ -45,6 +45,12 @@
             "text": "Northern Ireland",
             "name": "Northern Ireland",
             "checked": checked("country", "Northern Ireland")
+          },
+          {
+            "value": "None of these",
+            "text": "None of these",
+            "name": "None of these",
+            "checked": checked("country", "None of these")
           }
         ]
       }) }}
