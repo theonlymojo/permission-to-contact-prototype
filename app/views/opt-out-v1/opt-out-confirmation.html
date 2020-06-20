@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "opt-out-v1" %}
-{% set heading = "We have withdrawn your interest from the clinical trials" %}
+{% set heading = "Success" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeMain %}
@@ -12,10 +12,18 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <div class="nhsuk-alert nhsuk-alert--success nhsuk-u-margin-bottom-5">
-        <h1 class="nhsuk-heading-l">{{ heading }}</h1>
+        <h1 class="nhsuk-u-margin-bottom-4">{{ heading }}</h1>
+        <p class="nhsuk-body-l">Your details have been removed from the contact list.</p>
       </div>
 
-      <p>We have sent you a confirmation email.</p>
+      <p>We have sent you an email for confirmation.</p>
+
+      <h2>What happens next</h2>
+      <p>You will no longer be contacted by any researchers for future coronavirus clinical trials.</p>
+      <p>This does not remove you from any trials you are currentluy taking part in.</p>
+
+      <h2>Re-registering your interest</h2>
+      <p>You can <a href="/v2">re-register your interest in being contacted for trials</a> at any time</a>.</p>
 
     </div>
   </div>
