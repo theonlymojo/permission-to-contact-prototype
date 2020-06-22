@@ -1,5 +1,4 @@
 {% extends 'layout.html' %}
-
 {% set version = "v3" %}
 {% if (data['tested'] == "Yes") %}
   {% set backLink = "test-results" %}
@@ -13,7 +12,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/obesity" method="post" class="form">
+      <form action="/{{ version }}/weight" method="post" class="form">
 
         {{ radios({
           "idPrefix": "cancer",

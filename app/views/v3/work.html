@@ -1,16 +1,8 @@
 {% extends 'layout.html' %}
 
 {% set version = "v3" %}
-{% if (data['country'] == "Northern Ireland") %}
-{% if (data['ni-town'] >= "0") %}
-  {% set backLink = "NI-town" %}
-{% else %}
-  {% set backLink = "NI-postcode" %}
-{% endif %}
-{% else %}
-  {% set backLink = "postcode" %}
-{% endif %}
-{% set heading = "What type of work do you do?" %}
+{% set backLink = "ethnic-group" %}
+{% set heading = "Does your work mean you have face to face contact with different people every day?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
@@ -40,57 +32,19 @@
             classes: "nhsuk-fieldset__legend--l"
           }
         },
+        "hint": {
+          "text": "Some examples of this are nurse, doctor, care worker, transport worker, shop worker, taxi driver, delivery worker, police officer."
+        },
         items: [
           {
-            value: "Education and childcare",
-            text: "Education and childcare",
-            checked: checked("work", "Education and childcare")
+            value: "Yes",
+            text: "Yes",
+            checked: checked("work", "Yes")
           },
           {
-            value: "Essential goods production and distribution",
-            text: "Essential goods production and distribution",
-            checked: checked("work", "Essential goods production and distribution")
-          },
-          {
-            value: "Government and local authorities",
-            text: "Government and local authorities",
-            checked: checked("work", "Government and local authorities")
-          },
-          {
-            value: "Health and social care",
-            text: "Health and social care",
-            checked: checked("work", "Health and social care")
-          },
-          {
-            value: "Public safety and security",
-            text: "Public safety and security",
-            checked: checked("work", "Public safety and security")
-          },
-          {
-            value: "Public services",
-            text: "Public services",
-            checked: checked("work", "Public services")
-          },
-          {
-            value: "Transport",
-            text: "Transport",
-            checked: checked("work", "Transport")
-          },
-          {
-            value: "Utilities, communications and finances",
-            text: "Utilities, communications and finances",
-            checked: checked("work", "Utilities, communications and finances")
-          },
-          {
-            divider: "or"
-          },
-          {
-            value: "Another type of work",
-            text: "Another type of work",
-            checked: checked("work", "Another type of work"),
-            conditional: {
-              html: workOtherHtml
-            }
+            value: "No",
+            text: "No",
+            checked: checked("work", "No")
           },
           {
             divider: "or"
@@ -119,3 +73,5 @@
     </div>
   </div>
 {% endblock %}
+
+Some examples of this are nurse, doctor, care worker, transport worker, shop worker, taxi driver, delivery worker, police officer. 

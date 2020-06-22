@@ -1,22 +1,50 @@
 {% extends 'layout.html' %}
 
 {% set version = "v3" %}
-{% set heading = "We need your permission to contact you about covid-19 clinical trials" %}
-
-{% block beforeMain %}
-{% endblock %}
+{% set backLink = "permission" %}
+{% set heading = "Confirm you don't give your permission?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-l">{{ heading }}</h1>
+      <form action="/{{ version }}/no-permission-confirmed" method="post" class="form">
 
-      <p>We can only contact you about covid-19 clinical trials if you agree to give your consent to be contacted.</p>
+        {{ radios({
+        "idPrefix": "no-permission-confirmed",
+        "name": "no-permission-confirmed",
+        "fieldset": {
+          "legend": {
+            "text": heading,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "If you don't give your permission, you cannot sign up to be contacted about coronavirus vaccine research."
+        },
+        "items": [
+          {
+            "value": "I do not give my permission",
+            "text": "I do not give my permission",
+            "name": "I do not give my permission",
+            "checked": checked("no-permission-confirmed", "I do not give my permission")
+          },
+          {
+            "value": "I have changed my mind",
+            "text": "I have changed my mind",
+            "name": "I have changed my mind",
+            "checked": checked("no-permission-confirmed", "I have changed my mind")
+          }
+        ]
+      }) }}
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
 
-      <a href="/v3/permission" class="nhsuk-button nhsuk-u-margin-bottom-8">
-        Back to permission
-      </a>
+      </form>
 
     </div>
   </div>

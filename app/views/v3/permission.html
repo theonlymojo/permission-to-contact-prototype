@@ -1,7 +1,11 @@
 {% extends 'layout.html' %}
 
 {% set version = "v3" %}
-{% set backLink = "cardiac-disease" %}
+{% if (data['sex'] == "Female") %}
+  {% set backLink = "are-you-pregnant" %}
+{% else %}
+  {% set backLink = "cardiac-disease" %}
+{% endif %}
 {% set heading = "Your permission" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 

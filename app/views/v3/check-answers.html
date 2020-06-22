@@ -30,75 +30,6 @@
         </div>
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            Pregnant
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-            {{ data['areyoupregnant'] }}
-          </dd>
-          <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="/{{ version }}/are-you-pregnant">
-              Change <span class="nhsuk-u-visually-hidden">Pregnant</span>
-            </a>
-          </dd>
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-              Name
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-            {{ data['first-name'] }} {{ data['last-name'] }}
-          </dd>
-          <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="/{{ version }}/name">
-              Change <span class="nhsuk-u-visually-hidden">Name</span>
-            </a>
-          </dd>
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-              Your sex
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-            {{ data['sex'] }}
-          </dd>
-          <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="/{{ version }}/your-sex">
-              Change <span class="nhsuk-u-visually-hidden">Your sex</span>
-            </a>
-          </dd>
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-              Ethnic group
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-            {% if (data['ethnicity-other']) %}
-            {{ data['ethnicity-other'] }}
-            {% else %}
-            {{ data['ethnic-group'] }}
-            {% endif %}
-          </dd>
-          <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="/{{ version }}/ethnic-group">
-              Change <span class="nhsuk-u-visually-hidden">Ethnic group</span>
-            </a>
-          </dd>
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-              Email address
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-            {{ data['email'] }}
-          </dd>
-          <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="/{{ version }}/email">
-              Change <span class="nhsuk-u-visually-hidden">Email address</span>
-            </a>
-          </dd>
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
               Where you live
           </dt>
           <dd class="nhsuk-summary-list__value">
@@ -156,7 +87,76 @@
             </a>
           </dd>
       </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+            Email address
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['email'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/email">
+            Change <span class="nhsuk-u-visually-hidden">Email address</span>
+          </a>
+        </dd>
+      </div>
       {% endif %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+              Name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['first-name'] }} {{ data['last-name'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/name">
+              Change <span class="nhsuk-u-visually-hidden">Name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Sex registered at birth
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['sex'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/your-sex">
+              Change <span class="nhsuk-u-visually-hidden">Sex registered at birth</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Gender same as the sex you were registered at birth
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['gender'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/your-sex">
+              Change <span class="nhsuk-u-visually-hidden">Gender same as the sex you were registered at birth</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+              Ethnic group
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {% if (data['ethnicity-other']) %}
+            {{ data['ethnicity-other'] }}
+            {% else %}
+            {{ data['ethnic-group'] }}
+            {% endif %}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/ethnic-group">
+              Change <span class="nhsuk-u-visually-hidden">Ethnic group</span>
+            </a>
+          </dd>
+        </div>
         
       {% if (data['work'] == "Another type of work") %}
         <dt class="nhsuk-summary-list__key">
@@ -219,23 +219,155 @@
           </dd>
         </div>
       {% endif %}
+      
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-            Health problems
+          Currently having treatment for cancer
         </dt>
         <dd class="nhsuk-summary-list__value">
-          <ul class="nhsuk-list">
-            {% for item in data['conditions'] | toArray %}
-              <li>{{ item }}</li>
-            {% endfor %}
-          </ul>
+          {{ data['cancer'] }}
         </dd>
         <dd class="nhsuk-summary-list__actions">
-          <a class="nhsuk-link" href="/{{ version }}/health-problems">
-            Change <span class="nhsuk-u-visually-hidden">Health conditions</span>
+          <a class="nhsuk-link" href="/{{ version }}/cancer">
+            Change <span class="nhsuk-u-visually-hidden">Currently having treatment for cancer</span>
           </a>
         </dd>
       </div>
+      
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Advised to lose weight
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['weight'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/weight">
+            Change <span class="nhsuk-u-visually-hidden">Advised to lose weight</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Bleeding disorder
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['bleeding-disorder'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/bleeding-disorder">
+            Change <span class="nhsuk-u-visually-hidden">Bleeding disorder</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Lung disease
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['lung-disease'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/lung-disease">
+            Change <span class="nhsuk-u-visually-hidden">Lung disease</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Diabetes
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['diabetes'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/diabetes">
+            Change <span class="nhsuk-u-visually-hidden">Diabetes</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Liver disease
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['liver-disease'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/liver-disease">
+            Change <span class="nhsuk-u-visually-hidden">Liver disease</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Moderate or severe asthma
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['asthma'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/asthma">
+            Change <span class="nhsuk-u-visually-hidden">Moderate or severe asthma</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Condition that affects your immune system
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['immune-system'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/immune-system">
+            Change <span class="nhsuk-u-visually-hidden">Condition that affects your immune system</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Heart condition
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['cardiac-disease'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/cardiac-disease">
+            Change <span class="nhsuk-u-visually-hidden">Heart condition</span>
+          </a>
+        </dd>
+      </div>
+
+
+
+      {% if (data['sex'] == "Female") %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Pregnant
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['areyoupregnant'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/are-you-pregnant">
+            Change <span class="nhsuk-u-visually-hidden">Pregnant</span>
+          </a>
+        </dd>
+      </div>
+        {% else %}
+        
+      {% endif %}
+
+
+      
 
       </dl>
   

@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "v3" %}
-{% set backLink = "your-sex" %}
+{% set backLink = "your-gender" %}
 {% set heading = "What is your ethnic group?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
@@ -9,7 +9,18 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/email" method="post" class="form">
+      <form action="/{{ version }}/work" method="post" class="form">
+
+        {% set ethnicGroupOtherHtml %}
+        {{ input({
+          id: "ethnicity-other",
+          name: "ethnicity-other",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Your ethnic group"
+          }
+        }) }}
+      {% endset -%}
 
       {{ radios({
         idPrefix: "ethnic-group",
@@ -73,8 +84,8 @@
             label: {
               classes: 'nhsuk-label--s'
             },
-            hint: {
-              text: 'Includes any other ethnic group, for example, Middle Eastern'
+            conditional: {
+              html: ethnicGroupOtherHtml
             }
           },
           {

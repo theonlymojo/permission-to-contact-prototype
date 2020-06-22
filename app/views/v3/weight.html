@@ -2,7 +2,7 @@
 
 {% set version = "v3" %}
 {% set backLink = "cancer" %}
-{% set heading = "Has a health care professional told you that you are severely obese?" %}
+{% set heading = "Has a doctor, nurse or dietitian advised you to lose weight?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
@@ -12,8 +12,8 @@
       <form action="/{{ version }}/bleeding-disorder" method="post" class="form">
 
         {{ radios({
-          "idPrefix": "obese",
-          "name": "obese",
+          "idPrefix": "weight",
+          "name": "weight",
           "fieldset": {
             "legend": {
               "text": heading,
@@ -26,13 +26,13 @@
               "value": "Yes",
               "text": "Yes",
               "name": "Yes",
-              "checked": checked("obese", "Yes")
+              "checked": checked("weight", "Yes")
             },
             {
               "value": "No",
               "text": "No",
               "name": "No",
-              "checked": checked("obese", "No")
+              "checked": checked("weight", "No")
             },
             {
               divider: "or"
@@ -41,7 +41,7 @@
               "value": "I'm not sure",
               "text": "I'm not sure",
               "name": "I'm not sure",
-              "checked": checked("obese", "I'm not sure")
+              "checked": checked("weight", "I'm not sure")
             }
           ]
         }) }}

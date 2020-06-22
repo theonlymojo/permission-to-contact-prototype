@@ -9,7 +9,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/permission" method="post" class="form">
+      <form action="/{{ version }}/are-you-pregnant" method="post" class="form">
 
         {{ radios({
           "idPrefix": "cardiac-disease",
@@ -20,6 +20,9 @@
               "classes": "nhsuk-fieldset__legend--l",
               "isPageHeading": true
             }
+          },
+          "hint": {
+            "text": "Some examples are heart failure, coronary artery disease, congenital heart disease, cardiomyopathies, pulmonary hypertension"
           },
           "items": [
             {

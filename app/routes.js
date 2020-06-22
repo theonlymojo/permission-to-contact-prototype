@@ -5,7 +5,7 @@ const router = express.Router();
 // Add your routes here - above the module.exports line
 
 // Over 18 routing from DOB - V3
-router.post('/v3/are-you-pregnant', function (req, res) {
+router.post('/v3/country', function (req, res) {
 
   var install = req.session.data['dob-year']
 
@@ -13,21 +13,35 @@ router.post('/v3/are-you-pregnant', function (req, res) {
     res.redirect('/v3/under18')
   }
   else {
-    res.redirect('/v3/are-you-pregnant')
+    res.redirect('/v3/country')
+  }
+
+})
+
+// No permission confirmation - V3
+router.post('/v3/no-permission-confirmed', function (req, res) {
+
+  var install = req.session.data['no-permission-confirmed']
+
+  if (install == "I do not give my permission"){
+    res.redirect('/v3/no-permission-confirmed')
+  }
+  else {
+    res.redirect('/v3/permission')
   }
 
 })
 
 // Pregnant routing - V3
-router.post('/v3/name', function (req, res) {
+router.post('/v3/are-you-pregnant', function (req, res) {
 
-  var install = req.session.data['areyoupregnant']
+  var install = req.session.data['sex']
 
-  if (install == "Yes"){
-    res.redirect('/v3/pregnant')
+  if (install == "Female"){
+    res.redirect('/v3/are-you-pregnant')
   }
   else {
-    res.redirect('/v3/name')
+    res.redirect('/v3/permission')
   }
 
 })
@@ -78,7 +92,7 @@ router.post('/v3/hear-from-nhsd', function (req, res) {
 })
 
 // Ethnicity question routing - V3
-router.post('/v3/email', function (req, res) {
+router.post('/v3/work', function (req, res) {
 
   var install = req.session.data['ethnic-group']
 
@@ -94,11 +108,8 @@ router.post('/v3/email', function (req, res) {
   if (install == "Black, African, Black British or Caribbean"){
     res.redirect('/v3/ethnic-group-black')
   }
-  if (install == "Another ethnic group"){
-    res.redirect('/v3/ethnic-group-other')
-  }
   else {
-    res.redirect('/v3/email')
+    res.redirect('/v3/work')
   }
 
 })
