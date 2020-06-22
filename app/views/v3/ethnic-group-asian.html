@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+
+{% set version = "v3" %}
+{% set backLink = "ethnic-group" %}
+{% set heading = "Which one best describes your Asian or Asian British background?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/work" method="post" class="form">
+
+      {% set asianOtherHtml %}
+        {{ input({
+          id: "ethnicity-other",
+          name: "ethnicity-other",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Your Asian background (optional)"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ radios({
+        idPrefix: "ethnic-group",
+        name: "ethnic-group",
+        fieldset: {
+          legend: {
+            text: heading,
+            isPageHeading: true,
+            classes: "nhsuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Bangladeshi",
+            text: "Bangladeshi",
+            checked: checked("ethnic-group", "Bangladeshi")
+          },
+          {
+            value: "Chinese",
+            text: "Chinese",
+            checked: checked("ethnic-group", "Chinese")
+          },
+          {
+            value: "Indian",
+            text: "Indian",
+            checked: checked("ethnic-group", "Indian")
+          },
+          {
+            value: "Pakistani",
+            text: "Pakistani",
+            checked: checked("ethnic-group", "Pakistani")
+          },
+          {
+            value: "Another Asian background",
+            text: "Another Asian background",
+            checked: checked("ethnic-group", "Another Asian background"),
+            conditional: {
+              html: asianOtherHtml
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Prefer not to say",
+            text: "Prefer not to say",
+            checked: checked("ethnic-group", "Prefer not to say"),
+            label: {
+              classes: 'nhsuk-label'
+            }
+          }
+        ]
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

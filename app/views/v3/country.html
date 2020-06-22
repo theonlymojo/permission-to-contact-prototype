@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% set version = "v3" %}
+{% set backLink = "dob" %}
+{% set heading = "Where do you live?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/postcode" method="post" class="form">
+
+        {{ radios({
+        "idPrefix": "country",
+        "name": "country",
+        "fieldset": {
+          "legend": {
+            "text": heading,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "England",
+            "text": "England",
+            "name": "England",
+            "checked": checked("country", "England")
+          },
+          {
+            "value": "Scotland",
+            "text": "Scotland",
+            "name": "Scotland",
+            "checked": checked("country", "Scotland")
+          },
+          {
+            "value": "Wales",
+            "text": "Wales",
+            "name": "Wales",
+            "checked": checked("country", "Wales")
+          },
+          {
+            "value": "Northern Ireland",
+            "text": "Northern Ireland",
+            "name": "Northern Ireland",
+            "checked": checked("country", "Northern Ireland")
+          },
+          {
+            divider: "or"
+          },
+          {
+            "value": "None of these",
+            "text": "None of these",
+            "name": "None of these",
+            "checked": checked("country", "None of these")
+          }
+        ]
+      }) }}
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
