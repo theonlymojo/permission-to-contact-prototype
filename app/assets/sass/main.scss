@@ -24,11 +24,41 @@
   background-color: $color_nhsuk-grey-4 !important;
 }
 
-.app-small-text {
-  font-size: 8px;
-}
-
 h1 {
   word-break: break-word;
 }
 
+.app-email-body {
+  background-color: $color_nhsuk-grey-4 !important;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.app-email-container {
+  background-color: $color_nhsuk-grey-4 !important;
+  margin: 32px 16px;
+}
+
+.app-email-container--body {
+  background-color: $color_nhsuk-white !important;
+  margin: 0;
+  padding: 32px;
+
+  @include mq($until: tablet) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.app-email-header {
+  .nhsuk-header__container {
+    padding-left: 32px;
+    padding-right: 32px;
+    margin: 0;
+
+    @include mq($until: tablet) {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+}
