@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "opt-out-v1" %}
-{% set heading = "Withdraw your permission to be contacted" %}
+{% set heading = "Withdraw your permission to be contacted about clinical trials" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeMain %}
@@ -20,7 +20,7 @@
             Email address
           </label>
           <span class="nhsuk-hint">
-            Enter the email address you used to give your permission
+            Enter the email address you used to sign up to give your permission 
           </span>
           <input class="nhsuk-input nhsuk-u-width-three-quarters" id="opt-out-email" name="opt-out-email" type="email" autocomplete="email" spellcheck="false" value="{{ data['opt-out-email'] }}">
         </div>
