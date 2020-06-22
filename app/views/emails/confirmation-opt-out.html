@@ -1,0 +1,31 @@
+{% extends 'layout-email.html' %}
+
+{% set version = "emails" %}
+{% set bodyClasses = "app-email-body" %}
+{% set emailFrom = "clinical-trials@nhs.net" %}
+{% set emailTo = "joe.bloggs@google.com" %}
+{% set emailSubject = "Confirmation of withdrawing your permission to take part in coronavirus clinical trials" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="nhsuk-u-visually-hidden">Confirmation of withdrawing your permission</h1>
+
+  <p>Dear Joe Bloggs,</p>
+
+  <p>Your details have been removed from the contact list.</p>
+
+  <hr>
+
+  <h2 class="nhsuk-heading-m">What happens next</h2>
+  <p>You will no longer be contacted by any researchers for future coronavirus clinical trials.</p>
+  <p>This does not remove you from any trials you are currentluy taking part in.</p>
+
+  <hr>
+
+  <h2 class="nhsuk-heading-m">Giving your permission again</h2>
+  <p>If you change your mind, you can <a href="/v2">give your permission again to be contacted about coronavirus clinical trials</a>.</p>
+  
+{% endblock %}

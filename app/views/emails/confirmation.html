@@ -2,18 +2,20 @@
 
 {% set version = "emails" %}
 {% set bodyClasses = "app-email-body" %}
-{% set emailSubject = "Thank you for registering your interest to take part in coronavirus clinical trials" %}
+{% set emailFrom = "clinical-trials@nhs.net" %}
+{% set emailTo = "joe.bloggs@google.com" %}
+{% set emailSubject = "Thank you for registering your permission to take part in coronavirus clinical trials" %}
 
 {% block beforeMain %}
 {% endblock %}
 
 {% block content %}
 
-  <h1 class="nhsuk-heading-l">Confirmation of your registration</h1>
+  <h1 class="nhsuk-heading-l nhsuk-u-visually-hidden">Confirmation of your registration</h1>
 
   <p>Dear Joe Bloggs,</p>
 
-  <p>You have registered your interest to take part in the coronavirus clinical trials.</p>
+  <p>You have registered your permission to take part in the coronavirus clinical trials.</p>
 
   <hr>
 

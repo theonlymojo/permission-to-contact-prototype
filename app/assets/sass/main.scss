@@ -43,6 +43,7 @@ h1 {
   background-color: $color_nhsuk-white !important;
   margin: 0;
   padding: 32px;
+  padding-bottom: 24px;
 
   @include mq($until: tablet) {
     padding-left: 16px;
