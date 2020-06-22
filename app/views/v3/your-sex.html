@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% set version = "v3" %}
+{% set backLink = "name" %}
+{% set heading = "What is your sex?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/ethnic-group" method="post" class="form">
+
+      {{ radios({
+        "idPrefix": "sex",
+        "name": "sex",
+        "fieldset": {
+          "legend": {
+            "text": heading,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "Select your sex"
+        },
+        "items": [
+          {
+            "value": "Female",
+            "text": "Female",
+            "name": "Female",
+            "checked": checked("sex", "Female")
+          },
+          {
+            "value": "Male",
+            "text": "Male",
+            "name": "Male",
+            "checked": checked("sex", "Male")
+          },
+          {
+            "divider": "or"
+          },
+          {
+            "value": "Prefer not to say",
+            "text": "Prefer not to say",
+            "name": "Prefer not to say",
+            "checked": checked("sex", "Prefer not to say")
+          }
+        ]
+      }) }}
+
+      {{ details({
+          "text": "Why we are asking this question",
+          "HTML": "
+          <p>We're asking this question because we need to make sure there's a mix of females and males on clinical trials.</p>
+          <p>Knowing your sex can help researchers match you with a relevant trial.</p>
+          "
+        }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

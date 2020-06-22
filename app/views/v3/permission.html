@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% set version = "v3" %}
+{% set backLink = "cardiac-disease" %}
+{% set heading = "Your permission" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/hear-from-nhsd" method="post" class="form">
+      <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl nhsuk-u-margin-bottom-5">
+          <h1 class="nhsuk-fieldset__heading">
+            {{ heading }}
+          </h1>
+        </legend>
+
+        <p>I give permission for a researcher to contact me about taking part in clinical trials to find a vaccine for coronavirus (COVID-19).</p>
+
+        {{ details({
+          "text": "What is a clinical trial?",
+          "HTML": "
+          <p>A clinical trial compares one medicine or treatment with another. People who work on clinical trials are called researchers.</p>
+          <p>Researchers are not always from the NHS. Clinical trials can take place in other companies or organisations, for example universities.</p>
+          "
+        }) }}
+
+        <p>I understand:</p>
+        <ul>
+          <li>a researcher will only contact me if they think I might be eligible for a clinical trial</li>
+          <li>any of my data that researchers use will be kept secure and confidential</li>
+          <li>I can withdraw my permission to be contacted by researchers at any time. I can find out how to do this in the email I’ll receive when I give my permission here. I can still take part in trials I am currently involved in, but will no longer be contacted for any future clinical trials</li>
+          <li>I can find out more about taking part in clinical trials at the <a target=blank href="https://www.bepartofresearch.nihr.ac.uk/">Be a part of research</a> website (opens in a new window)</li>
+        </ul>
+         
+        {{ radios({
+          "idPrefix": "give-permission",
+          "name": "give-permission",
+          "items": [
+            {
+              "value": "Yes, I give my permission",
+              "text": "Yes, I give my permission",
+              "name": "Yes, I give my permission",
+              "checked": checked("give-permission", "Yes, I give my permission")
+            },
+            {
+              "value": "No, I do not give my permission",
+              "text": "No, I do not give my permission",
+              "name": "No, I do not give my permission",
+              "checked": checked("give-permission", "No, I do not give my permission")
+            }
+          ]
+        }) }}
+
+        </fieldset>
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

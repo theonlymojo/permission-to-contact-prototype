@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% set version = "v3" %}
+{% set backLink = "permission" %}
+{% set heading = "Do you want to be contacted by NHS Digital about trials for coronavirus treatment and prevention, as well as vaccines?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/hear-from-nhsd-non-covid" method="post" class="form">
+
+        {{ radios({
+          "idPrefix": "hear-from-nhsd",
+          "name": "hear-from-nhsd",
+          "fieldset": {
+            "legend": {
+              "text": heading,
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
+          },
+          "hint": {
+            "text": "You will not be contacted by anyone outside of NHS Digital"
+          },
+          "items": [
+            {
+              "value": "Yes, I want to receive more information from NHS Digital about coronavirus trials",
+              "text": "Yes, I want to receive more information from NHS Digital about coronavirus trials",
+              "name": "Yes, I want to receive more information from NHS Digital about coronavirus trials",
+              "checked": checked("hear-from-nhsd", "Yes, I want to receive more information from NHS Digital about coronavirus trials")
+            },
+            {
+              "value": "No, I do not want to receive more information from NHS Digital about coronavirus trials",
+              "text": "No, I do not want to receive more information from NHS Digital about coronavirus trials",
+              "name": "No, I do not want to receive more information from NHS Digital about coronavirus trials",
+              "checked": checked("hear-from-nhsd", "No, I do not want to receive more information from NHS Digital about coronavirus trials")
+            }
+          ]
+        }) }}
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

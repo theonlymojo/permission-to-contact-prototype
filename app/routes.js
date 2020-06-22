@@ -4,6 +4,105 @@ const router = express.Router();
 
 // Add your routes here - above the module.exports line
 
+// Over 18 routing from DOB - V3
+router.post('/v3/are-you-pregnant', function (req, res) {
+
+  var install = req.session.data['dob-year']
+
+  if (install > "2002"){
+    res.redirect('/v3/under18')
+  }
+  else {
+    res.redirect('/v3/are-you-pregnant')
+  }
+
+})
+
+// Pregnant routing - V3
+router.post('/v3/name', function (req, res) {
+
+  var install = req.session.data['areyoupregnant']
+
+  if (install == "Yes"){
+    res.redirect('/v3/pregnant')
+  }
+  else {
+    res.redirect('/v3/name')
+  }
+
+})
+
+// Tested routing - V3
+router.post('/v3/test-results', function (req, res) {
+
+  var install = req.session.data['tested']
+
+  if (install == "Yes"){
+    res.redirect('/v3/test-results')
+  }
+  else {
+    res.redirect('/v3/cancer')
+  }
+
+})
+
+// Northern Ireland routing - V3
+router.post('/v3/postcode', function (req, res) {
+
+  var install = req.session.data['country']
+
+  if (install == "Northern Ireland"){
+    res.redirect('/v3/NI-postcode')
+  }
+  if (install == "None of these"){
+    res.redirect('/v3/outside-uk')
+  }
+  else {
+    res.redirect('/v3/postcode')
+  }
+
+})
+
+// Permission routing - V3
+router.post('/v3/hear-from-nhsd', function (req, res) {
+
+  var install = req.session.data['give-permission']
+
+  if (install == "No, I do not give my permission"){
+    res.redirect('/v3/no-permission')
+  }
+  else {
+    res.redirect('/v3/hear-from-nhsd')
+  }
+
+})
+
+// Ethnicity question routing - V3
+router.post('/v3/email', function (req, res) {
+
+  var install = req.session.data['ethnic-group']
+
+  if (install == "White"){
+    res.redirect('/v3/ethnic-group-white')
+  }
+  if (install == "Mixed or multiple ethnic groups"){
+    res.redirect('/v3/ethnic-group-mixed')
+  }
+  if (install == "Asian or Asian British"){
+    res.redirect('/v3/ethnic-group-asian')
+  }
+  if (install == "Black, African, Black British or Caribbean"){
+    res.redirect('/v3/ethnic-group-black')
+  }
+  if (install == "Another ethnic group"){
+    res.redirect('/v3/ethnic-group-other')
+  }
+  else {
+    res.redirect('/v3/email')
+  }
+
+})
+
 // Country routing - V1.1
 router.post('/v1-1/postcode', function (req, res) {
 

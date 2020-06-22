@@ -1,0 +1,111 @@
+{% extends 'layout.html' %}
+
+{% set version = "v3" %}
+{% if (data['tested'] == "Yes") %}
+  {% set backLink = "test-results" %}
+{% else %}
+  {% set backLink = "tested" %}
+{% endif %}
+{% set heading = "Do you have any of these health problems?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/permission" method="post" class="form">
+
+      {{ checkboxes({
+        "idPrefix": "conditions",
+        "name": "conditions",
+        "fieldset": {
+          "legend": {
+            "text": heading,
+            "classes": "nhsuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        },
+        "hint": {
+          "text": "Select all that apply"
+        },
+        "items": [
+          {
+            "value": "I am currently being treated for cancer",
+            "text": "I am currently being treated for cancer",
+            "checked": checked("conditions", "I am currently being treated for cancer")
+          },
+          {
+            "value": "I am severely obese",
+            "text": "I am severely obese",
+            "checked": checked("conditions", "I am severely obese"),
+            hint: {
+              text: 'body mass index equal to, or higher than 40 kg/m2'
+            }
+          },
+          {
+            "value": "I have bleeding disorders",
+            "text": "I have bleeding disorders",
+            "checked": checked("conditions", "I have bleeding disorders")
+          },
+          {
+            "value": "I have chronic lung disease",
+            "text": "I have chronic lung disease",
+            "checked": checked("conditions", "I have chronic lung disease"),
+            hint: {
+              text: 'for example emphysema, chronic bronchitis, idiopathic pulmonary fibrosis and cystic fibrosis'
+            }
+          },
+          {
+            "value": "I have diabetes",
+            "text": "I have diabetes",
+            "checked": checked("conditions", "I have diabetes"),
+            hint: {
+              text: 'type 1, type 2 or gestational'
+            }
+          },
+          {
+            "value": "I have liver disease",
+            "text": "I have liver disease",
+            "checked": checked("conditions", "I have liver disease")
+          },
+          {
+            "value": "I have moderate to severe asthma",
+            "text": "I have moderate to severe asthma",
+            "checked": checked("conditions", "I have moderate to severe asthma")
+          },
+          {
+            "value": "I have problems with my immune system",
+            "text": "I have problems with my immune system",
+            "checked": checked("conditions", "I have problems with my immune system"),
+            hint: {
+              text: 'current or previous diagnosis of immunocompromising condition, immune-mediated disease, or other immunosuppressive condition'
+            }
+          },
+          {
+            "value": "I have significant cardiac disease",
+            "text": "I have significant cardiac disease",
+            "checked": checked("conditions", "I have significant cardiac disease"),
+            hint: {
+              text: 'for example heart failure, coronary artery disease, congenital heart disease, cardiomyopathies, and pulmonary hypertension'
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            "value": "No - I do not have any of these health problems",
+            "text": "No - I do not have any of these health problems",
+            "checked": checked("conditions", "No - I do not have any of these health problems")
+          }
+        ]
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

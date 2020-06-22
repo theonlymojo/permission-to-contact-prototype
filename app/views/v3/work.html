@@ -1,0 +1,121 @@
+{% extends 'layout.html' %}
+
+{% set version = "v3" %}
+{% if (data['country'] == "Northern Ireland") %}
+{% if (data['ni-town'] >= "0") %}
+  {% set backLink = "NI-town" %}
+{% else %}
+  {% set backLink = "NI-postcode" %}
+{% endif %}
+{% else %}
+  {% set backLink = "postcode" %}
+{% endif %}
+{% set heading = "What type of work do you do?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/tested" method="post" class="form">
+        
+        {% set workOtherHtml %}
+        {{ input({
+          id: "work-other",
+          name: "work-other",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Tell us what work you do"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ radios({
+        idPrefix: "work",
+        name: "work",
+        fieldset: {
+          legend: {
+            text: heading,
+            isPageHeading: true,
+            classes: "nhsuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Education and childcare",
+            text: "Education and childcare",
+            checked: checked("work", "Education and childcare")
+          },
+          {
+            value: "Essential goods production and distribution",
+            text: "Essential goods production and distribution",
+            checked: checked("work", "Essential goods production and distribution")
+          },
+          {
+            value: "Government and local authorities",
+            text: "Government and local authorities",
+            checked: checked("work", "Government and local authorities")
+          },
+          {
+            value: "Health and social care",
+            text: "Health and social care",
+            checked: checked("work", "Health and social care")
+          },
+          {
+            value: "Public safety and security",
+            text: "Public safety and security",
+            checked: checked("work", "Public safety and security")
+          },
+          {
+            value: "Public services",
+            text: "Public services",
+            checked: checked("work", "Public services")
+          },
+          {
+            value: "Transport",
+            text: "Transport",
+            checked: checked("work", "Transport")
+          },
+          {
+            value: "Utilities, communications and finances",
+            text: "Utilities, communications and finances",
+            checked: checked("work", "Utilities, communications and finances")
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Another type of work",
+            text: "Another type of work",
+            checked: checked("work", "Another type of work"),
+            conditional: {
+              html: workOtherHtml
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "I don't work",
+            text: "I don't work",
+            checked: checked("work", "I don't work"),
+            label: {
+              classes: 'nhsuk-label'
+            }
+          }
+        ]
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+
+
+        </form>
+
+
+
+    </div>
+  </div>
+{% endblock %}

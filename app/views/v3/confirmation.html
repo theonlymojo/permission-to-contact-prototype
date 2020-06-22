@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% set version = "v3" %}
+{% set heading = "Success" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-alert nhsuk-alert--success">
+        <h1 class="nhsuk-u-margin-bottom-4">{{ heading }}</h1>
+        <p class="nhsuk-body-l">You have registered your interest to take part in the coronavirus clinical trials.</p>
+      </div>
+
+      <p>We have sent you a confirmation email.</p>
+
+      <h2>What happens next</h2>
+      <p>Researchers supported by the National Insitute for Health Research (NIHR) will contact you if you appear eligible for a coronavirus clinical trial.</p>
+      <p>There is no guarantee you will be contacted to be part of a trial. You may not be eligible for a trial even after researchers make contact.</p>
+
+      <h2>More information</h2>
+      <p>You can find out more information about the different types of research studies and trials on the <a href="https://www.nihr.ac.uk/covid-studies/">National Institute for Health Research (NIHR) website</a>.</p>
+
+      <h2>Withdraw your interest</h2>
+      <p>You can withdraw your interest at anytime. If you would like to  <a href="/opt-out-v1/opt-out-confirm-email">withdraw your interest in being a part of any future clinical trials, follow these steps</a>.</p>
+
+    </div>
+  </div>
+{% endblock %}

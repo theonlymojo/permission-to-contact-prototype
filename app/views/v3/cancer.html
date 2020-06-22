@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% set version = "v3" %}
+{% if (data['tested'] == "Yes") %}
+  {% set backLink = "test-results" %}
+{% else %}
+  {% set backLink = "tested" %}
+{% endif %}
+{% set heading = "Are you currently having treatment for cancer?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/obesity" method="post" class="form">
+
+        {{ radios({
+          "idPrefix": "cancer",
+          "name": "cancer",
+          "fieldset": {
+            "legend": {
+              "text": heading,
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
+          },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes",
+              "name": "Yes",
+              "checked": checked("cancer", "Yes")
+            },
+            {
+              "value": "No",
+              "text": "No",
+              "name": "No",
+              "checked": checked("cancer", "No")
+            },
+            {
+              divider: "or"
+            },
+            {
+              "value": "I'm not sure",
+              "text": "I'm not sure",
+              "name": "I'm not sure",
+              "checked": checked("cancer", "I'm not sure")
+            }
+          ]
+        }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

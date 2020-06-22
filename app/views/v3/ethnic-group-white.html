@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% set version = "v3" %}
+{% set backLink = "ethnic-group" %}
+{% set heading = "Which one best describes your White background?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/email" method="post" class="form">
+
+      {% set whiteOtherHtml %}
+        {{ input({
+          id: "ethnicity-other",
+          name: "ethnicity-other",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Your White background (optional)"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ radios({
+        idPrefix: "ethnic-group",
+        name: "ethnic-group",
+        fieldset: {
+          legend: {
+            text: heading,
+            isPageHeading: true,
+            classes: "nhsuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "British, English, Northern Irish, Scottish, or Welsh",
+            text: "British, English, Northern Irish, Scottish, or Welsh",
+            checked: checked("ethnic-group", "British, English, Northern Irish, Scottish, or Welsh")
+          },
+          {
+            value: "Irish",
+            text: "Irish",
+            checked: checked("ethnic-group", "Irish")
+          },
+          {
+            value: "Irish Traveller or Gypsy",
+            text: "Irish Traveller or Gypsy",
+            checked: checked("ethnic-group", "Irish Traveller or Gypsy")
+          },
+          {
+            value: "Another White background",
+            text: "Another White background",
+            checked: checked("ethnic-group", "Another White background"),
+            conditional: {
+              html: whiteOtherHtml
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Prefer not to say",
+            text: "Prefer not to say",
+            checked: checked("ethnic-group", "Prefer not to say"),
+            label: {
+              classes: 'nhsuk-label'
+            }
+          }
+        ]
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
