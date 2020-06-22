@@ -10,7 +10,7 @@
 {% else %}
   {% set backLink = "postcode" %}
 {% endif %}
-{% set heading = "What industry do you work in?" %}
+{% set heading = "What type of work do you do?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
@@ -25,7 +25,7 @@
           name: "work-other",
           classes: "nhsuk-u-width-two-thirds",
           label: {
-            text: "Your work industry"
+            text: "Tell us what work you do"
           }
         }) }}
       {% endset -%}
@@ -85,9 +85,9 @@
             divider: "or"
           },
           {
-            value: "Another work industry",
-            text: "Another work industry",
-            checked: checked("work", "Another work industry"),
+            value: "Another type of work",
+            text: "Another type of work",
+            checked: checked("work", "Another type of work"),
             conditional: {
               html: workOtherHtml
             }

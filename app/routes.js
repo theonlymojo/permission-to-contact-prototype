@@ -164,7 +164,7 @@ router.post('/v2/test-results', function (req, res) {
     res.redirect('/v2/test-results')
   }
   else {
-    res.redirect('/v2/health-problems')
+    res.redirect('/v2/cancer')
   }
 
 })

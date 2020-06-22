@@ -158,28 +158,28 @@
       </div>
       {% endif %}
         
-      {% if (data['work'] == "Another work industry") %}
+      {% if (data['work'] == "Another type of work") %}
         <dt class="nhsuk-summary-list__key">
-          Industry you work in
+          What type of work do you do?
         </dt>
         <dd class="nhsuk-summary-list__value">
           {{ data['work-other'] }}
         </dd>
         <dd class="nhsuk-summary-list__actions">
           <a class="nhsuk-link" href="/{{ version }}/work">
-            Change <span class="nhsuk-u-visually-hidden">Industry you work in</span>
+            Change <span class="nhsuk-u-visually-hidden">What type of work do you do?</span>
           </a>
         </dd>
         {% else %}
         <dt class="nhsuk-summary-list__key">
-          Industry you work in
+          What type of work do you do?
         </dt>
         <dd class="nhsuk-summary-list__value">
           {{ data['work'] }}
         </dd>
         <dd class="nhsuk-summary-list__actions">
           <a class="nhsuk-link" href="/{{ version }}/work">
-            Change <span class="nhsuk-u-visually-hidden">Industry you work in</span>
+            Change <span class="nhsuk-u-visually-hidden">What type of work do you do?</span>
           </a>
         </dd>
       {% endif %}
