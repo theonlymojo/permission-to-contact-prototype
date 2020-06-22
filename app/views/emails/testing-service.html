@@ -1,0 +1,38 @@
+{% extends 'layout-email.html' %}
+
+{% set version = "emails" %}
+{% set bodyClasses = "app-email-body" %}
+{% set emailFrom = "nhs.covid19.notification@notifications.service.gov.uk" %}
+{% set emailTo = "joe.bloggs@google.com" %}
+{% set emailSubject = "NHS COVID-19 Notification" %}
+{% set serviceName = "Get a coronavirus test" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="nhsuk-u-visually-hidden">{{ emailSubject }}</h1>
+
+  <p>Dear Joe Bloggs,</p>
+  <p class="nhsuk-u-secondary-text-color">Birth date – 15 March 1984</p>
+
+  <p>Your coronavirus test result is negative. You did not have the virus when the test was done.</p>
+
+  <p>You may return to work if you’ve not had a fever for 48 hours and feel well. Talk to your employer first.</p>
+
+  <p>If you feel well but someone you live with tests positive, self-isolate for 14 days from when their symptoms started. If you get symptoms of coronavirus, self-isolate for 7 days.</p>
+
+  <p>If you’re shielding or you’ve been traced as a contact of someone who tested positive, or this is for a care home resident, follow the relevant guidelines. If the care home resident still has symptoms, they’ll need a medical assessment and may need a repeat test.</p>
+
+  <p>If this result is for a child or staff member at school or nursery, tell the school or nursery.</p>
+
+  <p>Contact 111 if you need medical help. In an emergency, dial 999.</p>
+
+  <hr>
+
+  <h2>Can you help the NHS?</h2>
+  <p>Over 18’s can now sign up to take part in coronavirus vaccine clinical research trials.</p>
+  <p><a href="/v3">Click here to find out more and apply</a></p>
+
+{% endblock %}
