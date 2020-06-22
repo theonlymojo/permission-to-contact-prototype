@@ -4,10 +4,6 @@ module.exports = {
   // Service name
   serviceName: 'Sign up to be contacted about coronavirus vaccine research',
 
-  // Test journdeys
-  testJourney: 'v2',
-  testJourneyOptOut: 'opt-out-v1',
-
   // Port to run nodemon on locally
   port: 2000,
 
