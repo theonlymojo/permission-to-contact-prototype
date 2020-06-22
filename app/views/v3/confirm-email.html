@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "v3" %}
-{% set heading = "One more step" %}
+{% set heading = "Confirm your email address" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeMain %}
@@ -13,17 +13,17 @@
 
       <h1 class="nhsuk-u-margin-bottom-4">{{ heading }}</h1>
 
-      <p>We've sent you an email. Please click on the link in the email to confirm your address.</p>
+      <p>We've sent you an email. Please click on the link in the email to confirm your email address.</p>
 
       <div class="nhsuk-alert">
-        <p class="nhsuk-u-font-weight-bold">Your interest will not be registered until you click the link in the email.</p>
+        <p class="nhsuk-u-font-weight-bold">Your permission will not be sent until you click on the link in the email.</p>
       </div>
 
       {{ details({
         "text": "Not received a email?",
         "HTML": "
         <p>Allow up to 24 hours for the email to arrive.</p>
-        <p>If you have not received an email, check your spam and junk mail folders.</p>
+        <p>If you have not received the email, check your spam and junk mail folders.</p>
         "
       }) }}
 
