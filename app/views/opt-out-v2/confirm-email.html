@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% set version = "opt-out-v2" %}
+{% set heading = "Confirm that this is your email address" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/confirm" method="post" class="form">
+
+        <div class="nhsuk-form-group">
+
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                Can you confirm that {% if (data['opt-out-email']) %}{{ data['opt-out-email'] }}{% else %}{{ data['email'] }}{% endif %} is your email address?
+              </h1>
+            </legend>
+
+            <div class="nhsuk-radios">
+
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="opt-out-confirm-email-yes" name="opt-out-confirm-email" type="radio" value="Yes, that is correct">
+                <label class="nhsuk-label nhsuk-radios__label" for="opt-out-confirm-email-yes">
+                  Yes, that is my email address
+                </label>
+              </div>
+
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="opt-out-confirm-email-no" name="opt-out-confirm-email" type="radio" value="No, that is not my email address">
+                <label class="nhsuk-label nhsuk-radios__label" for="opt-out-confirm-email-no">
+                  No, that is not my email address
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+
+        </div>
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

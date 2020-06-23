@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% set version = "opt-out-v2" %}
+{% set heading = "Confirm you want to withdraw your permission to be contacted about coronavirus clinical trials" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-card__heading nhsuk-heading-l nhsuk-u-margin-bottom-4">{{ heading }}</h1>
+      <form action="/{{ version }}/confirmation" method="post" class="form">
+        <input type="submit" class="nhsuk-button" value="Withdraw my permission">
+      </form>
+      <a href="/{{ version }}/">I have changed my mind</a>
+
+    </div>
+  </div>
+{% endblock %}
