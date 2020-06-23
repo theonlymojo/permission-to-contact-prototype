@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "v3" %}
-{% set heading = "Sorry, only those living in the UK can take part in clinical trials" %}
+{% set heading = "Sorry, you cannot sign up" %}
 
 {% block beforeMain %}
 {% endblock %}
@@ -12,9 +12,7 @@
 
       <h1>{{ heading }}</h1>
 
-      <a href="/v3" class="nhsuk-button nhsuk-u-margin-bottom-8">
-        Start over
-      </a>
+      <p>Only those living in the UK can take part in clinical trials.</p>
 
     </div>
   </div>
