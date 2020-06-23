@@ -87,6 +87,7 @@
             </a>
           </dd>
       </div>
+      {% endif %}
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
             Email address
@@ -100,7 +101,6 @@
           </a>
         </dd>
       </div>
-      {% endif %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
               Name
@@ -158,31 +158,17 @@
           </dd>
         </div>
         
-      {% if (data['work'] == "Another type of work") %}
         <dt class="nhsuk-summary-list__key">
-          What type of work do you do?
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          {{ data['work-other'] }}
-        </dd>
-        <dd class="nhsuk-summary-list__actions">
-          <a class="nhsuk-link" href="/{{ version }}/work">
-            Change <span class="nhsuk-u-visually-hidden">What type of work do you do?</span>
-          </a>
-        </dd>
-        {% else %}
-        <dt class="nhsuk-summary-list__key">
-          What type of work do you do?
+          Face to face contact with different people every day at work
         </dt>
         <dd class="nhsuk-summary-list__value">
           {{ data['work'] }}
         </dd>
         <dd class="nhsuk-summary-list__actions">
           <a class="nhsuk-link" href="/{{ version }}/work">
-            Change <span class="nhsuk-u-visually-hidden">What type of work do you do?</span>
+            Change <span class="nhsuk-u-visually-hidden">Face to face contact with different people every day at work</span>
           </a>
         </dd>
-      {% endif %}
 
         <div class="nhsuk-summary-list__row">
             
@@ -346,8 +332,6 @@
         </dd>
       </div>
 
-
-
       {% if (data['sex'] == "Female") %}
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
@@ -366,9 +350,6 @@
         
       {% endif %}
 
-
-      
-
       </dl>
   
       <h2>Permission and contact</h2>
@@ -376,14 +357,14 @@
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            Your permission
+            Permission for a researcher to contact me about taking part in clinical trials to find a vaccine for coronavirus
           </dt>
           <dd class="nhsuk-summary-list__value">
             {{ data['give-permission'] }}
           </dd>
           <dd class="nhsuk-summary-list__actions">
             <a class="nhsuk-link" href="/{{ version }}/permission">
-              Change <span class="nhsuk-u-visually-hidden">Your permission</span>
+              Change <span class="nhsuk-u-visually-hidden">Permission for a researcher to contact me about taking part in clinical trials to find a vaccine for coronavirus</span>
             </a>
           </dd>
         </div>
