@@ -1,0 +1,20 @@
+{% extends 'layout-email.html' %}
+
+{% set version = "emails-v2" %}
+{% set bodyClasses = "app-email-body" %}
+{% set emailFrom = "clinical-trials@nhs.net" %}
+{% set emailTo = "joe.bloggs@google.com" %}
+{% set emailSubject = "Confirm your email address" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="nhsuk-u-visually-hidden">{{ emailSubject }}</h1>
+
+  <p>Confirm your email address to register your permission to be contacted about coronavirus clinical trials.</p>
+
+  <a class="nhsuk-button" href="/v3/confirmation">Confirm email address</a>
+
+{% endblock %}

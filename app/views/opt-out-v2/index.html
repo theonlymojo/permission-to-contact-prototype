@@ -11,24 +11,21 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/enter-code" method="post" class="form">
+      <form action="/{{ version }}/email-sent" method="post" class="form">
 
        <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-5">{{ heading }}</h1>
 
         <div class="nhsuk-form-group">
-          <h2 class="nhsuk-heading-m">Get your security code</h2>
-          <p>We will send a security code to your email address. After 30 minutes your security code will not work.</p>
           <label class="nhsuk-label nhsuk-u-font-weight-bold nhsuk-u-margin-bottom-1" for="opt-out-email">
             Email address
           </label>
-          <span class="nhsuk-hint">
-            Enter the email address you used to sign up to give your permission.
-          </span>
-          <input class="nhsuk-input" id="opt-out-email" name="opt-out-email" type="email" autocomplete="email" spellcheck="false" value="{{ data['opt-out-email'] }}">
+          <span class="nhsuk-hint">Enter the email address you used to sign up to give your permission.</span>
+          <span class="nhsuk-hint">We will send you an email asking you to confirm your email address.</span>
+          <input class="nhsuk-input" id="opt-out-email" name="opt-out-email" type="email" autocomplete="email" spellcheck="false">
         </div>
 
         {{ button({
-          "text": "Send code"
+          "text": "Continue"
         }) }}
 
       </form>

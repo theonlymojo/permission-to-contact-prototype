@@ -1,0 +1,36 @@
+{% extends 'layout-email.html' %}
+
+{% set version = "emails-v2" %}
+{% set bodyClasses = "app-email-body" %}
+{% set emailFrom = "clinical-trials@nhs.net" %}
+{% set emailTo = "joe.bloggs@google.com" %}
+{% set emailSubject = "Thank you for registering your permission to take part in coronavirus clinical trials" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="nhsuk-heading-l nhsuk-u-visually-hidden">Confirmation of your registration</h1>
+
+  <p>Dear Joe Bloggs,</p>
+
+  <p>You have registered your permission to take part in the coronavirus clinical trials.</p>
+
+  <hr>
+
+  <h2 class="nhsuk-heading-m">What happens next</h2>
+  <p>Researchers supported by the National Insitute for Health Research (NIHR) will contact you if you appear eligible for a coronavirus clinical trial.</p>
+  <p>There is no guarantee you will be contacted to be part of a trial. You may not be eligible for a trial even after researchers make contact.</p>
+
+  <hr>
+
+  <h2 class="nhsuk-heading-m">More information</h2>
+  <p>You can find out more information about the different types of research studies and trials on the <a href="https://www.nihr.ac.uk/covid-studies/">National Institute for Health Research (NIHR) website</a>.</p>
+
+  <hr>
+
+  <h2 class="nhsuk-heading-m">Withdraw your permission</h2>
+  <p>Find out how to <a href="/opt-out-v1/opt-out-confirm-email">withdraw your permission to be contacted about coronavirus vaccine trials</a>.</p>
+
+{% endblock %}
