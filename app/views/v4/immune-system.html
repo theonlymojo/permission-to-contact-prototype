@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set backLink = "bleeding-disorder" %}
+{% set heading = "Has a doctor told you that getting an infection might be very serious?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/cardiac-disease" method="post" class="form">
+
+        {{ radios({
+          "idPrefix": "immune-system",
+          "name": "immune-system",
+          "fieldset": {
+            "legend": {
+              "text": heading,
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
+          },
+          "hint": {
+            "text": "This means you have a condition that weakens your immune system. Some examples are you've had an organ transplant, have HIV/AIDS or had your spleen removed"
+          },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes",
+              "name": "Yes",
+              "checked": checked("immune-system", "Yes")
+            },
+            {
+              "value": "No",
+              "text": "No",
+              "name": "No",
+              "checked": checked("immune-system", "No")
+            },
+            {
+              divider: "or"
+            },
+            {
+              "value": "I'm not sure",
+              "text": "I'm not sure",
+              "name": "I'm not sure",
+              "checked": checked("immune-system", "I'm not sure")
+            }
+          ]
+        }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

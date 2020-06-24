@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% if (data['sex'] == "Female") %}
+  {% set backLink = "are-you-pregnant" %}
+{% else %}
+  {% set backLink = "cancer" %}
+{% endif %}
+{% set heading = "We'll now ask for your permission to be contacted" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-card nhsuk-card--blue nhsuk-u-padding-1">
+        <div class="nhsuk-card__content">
+          <h1 class="nhsuk-card__heading nhsuk-u-margin-bottom-4"><h1>{{ heading }}</h1></h1>
+          <p>We will ask you to give permission for:</p>
+      <ul>
+        <li>researchers to contact you about taking part in health research to find a vaccine for coronavirus</li>
+        <li>NHS Digital to contact you about coronavirus health research for prevention and treatment</li>
+        <li>NHS Digital to contact you about other health research that do not involve coronavirus</li>
+      </ul>
+      <p>You do not have to give your permission for any of these if you do not want to.</p>
+      <h2>What is NHS Digital</h2>
+      <p><a href="https://digital.nhs.uk/">NHS Digital</a> is the national information and technology partner to the health and social care system.</p>
+      <p>NHS Digital supports health research...</p>
+      
+          <form action="permission" method="post">
+            <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

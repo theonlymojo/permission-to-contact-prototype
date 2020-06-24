@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set backLink = "name" %}
+{% set heading = "What sex were you registered at birth?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/your-gender" method="post" class="form">
+
+      {{ radios({
+        "idPrefix": "sex",
+        "name": "sex",
+        "fieldset": {
+          "legend": {
+            "text": heading,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "Female",
+            "text": "Female",
+            "name": "Female",
+            "checked": checked("sex", "Female")
+          },
+          {
+            "value": "Male",
+            "text": "Male",
+            "name": "Male",
+            "checked": checked("sex", "Male")
+          }
+        ]
+      }) }}
+
+      {{ details({
+        "text": "Why we are asking this question",
+        "HTML": "
+          <p>We're asking this to make sure there is the right mix of females and males taking part in health research.</p>
+          <p>This is so we can make sure any vaccines developed will work for everyone.</p>
+        "
+      }) }}
+
+        <p>The next question asks about your gender.</p>
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

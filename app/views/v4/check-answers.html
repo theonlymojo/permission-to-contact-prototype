@@ -1,0 +1,415 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set heading = "Check your answers before sending your permission" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ heading }}</h1>
+
+      <h2>Personal details</h2>
+
+      <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-7">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+              Date of birth
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['dob-day'] }} {{ data['dob-month'] | monthToWord }} {{ data['dob-year'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/dob">
+              Change <span class="nhsuk-u-visually-hidden">Date of birth</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+              Where you live
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['country'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/country">
+              Change <span class="nhsuk-u-visually-hidden">Where you live</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if (data['country'] == "Northern Ireland") %}
+            {% if (data['ni-town'] >= "0") %}
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Town
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{ data['ni-town'] }}
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a class="nhsuk-link" href="/{{ version }}/NI-town">
+                    Change <span class="nhsuk-u-visually-hidden">Town</span>
+                  </a>
+                </dd>
+              </div>
+              {% else %}
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Postcode
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{ data['ni-postcode'] }}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a class="nhsuk-link" href="/{{ version }}/NI-postcode">
+                  Change <span class="nhsuk-u-visually-hidden">Postcode</span>
+                </a>
+              </dd>
+          </div>
+          {% endif %}
+
+        {% else %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Postcode
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['postcode'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/postcode">
+              Change <span class="nhsuk-u-visually-hidden">Postcode</span>
+            </a>
+          </dd>
+      </div>
+      {% endif %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+            Email address
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['email'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/email">
+            Change <span class="nhsuk-u-visually-hidden">Email address</span>
+          </a>
+        </dd>
+      </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+              Name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['first-name'] }} {{ data['last-name'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/name">
+              Change <span class="nhsuk-u-visually-hidden">Name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Sex registered at birth
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['sex'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/your-sex">
+              Change <span class="nhsuk-u-visually-hidden">Sex registered at birth</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Gender same as the sex you were registered at birth
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['gender'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/your-sex">
+              Change <span class="nhsuk-u-visually-hidden">Gender same as the sex you were registered at birth</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+              Ethnic group
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {% if (data['ethnicity-other']) %}
+            {{ data['ethnicity-other'] }}
+            {% else %}
+            {{ data['ethnic-group'] }}
+            {% endif %}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/ethnic-group">
+              Change <span class="nhsuk-u-visually-hidden">Ethnic group</span>
+            </a>
+          </dd>
+        </div>
+        
+        <dt class="nhsuk-summary-list__key">
+          Face to face contact with different people every day at work
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['work'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/work">
+            Change <span class="nhsuk-u-visually-hidden">Face to face contact with different people every day at work</span>
+          </a>
+        </dd>
+
+        <div class="nhsuk-summary-list__row">
+            
+        </div>
+        </dl>
+        <h2>Health</h2>
+        <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-7">
+        <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Had a coronavirus test
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{ data['tested'] }}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a class="nhsuk-link" href="/{{ version }}/tested">
+                Change <span class="nhsuk-u-visually-hidden">Had a coronavirus test</span>
+              </a>
+            </dd>
+        </div>
+
+        {% if (data['tested'] !== "No") %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Test results
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['test-results'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/test-results">
+              Change <span class="nhsuk-u-visually-hidden">Test results</span>
+            </a>
+          </dd>
+        </div>
+      {% endif %}
+      
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Currently having treatment for cancer
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['cancer'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/cancer">
+            Change <span class="nhsuk-u-visually-hidden">Currently having treatment for cancer</span>
+          </a>
+        </dd>
+      </div>
+      
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Advised to lose weight
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['weight'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/weight">
+            Change <span class="nhsuk-u-visually-hidden">Advised to lose weight</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Bleeding disorder
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['bleeding-disorder'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/bleeding-disorder">
+            Change <span class="nhsuk-u-visually-hidden">Bleeding disorder</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Lung condition
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['lung-disease'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/lung-disease">
+            Change <span class="nhsuk-u-visually-hidden">Lung condition</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Diabetes
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['diabetes'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/diabetes">
+            Change <span class="nhsuk-u-visually-hidden">Diabetes</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Liver condition
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['liver-disease'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/liver-disease">
+            Change <span class="nhsuk-u-visually-hidden">Liver condition</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Moderate or severe asthma
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['asthma'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/asthma">
+            Change <span class="nhsuk-u-visually-hidden">Moderate or severe asthma</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Condition that affects your immune system
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['immune-system'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/immune-system">
+            Change <span class="nhsuk-u-visually-hidden">Condition that affects your immune system</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Heart condition
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['cardiac-disease'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/cardiac-disease">
+            Change <span class="nhsuk-u-visually-hidden">Heart condition</span>
+          </a>
+        </dd>
+      </div>
+
+      {% if (data['sex'] == "Female") %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Pregnant
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['areyoupregnant'] }}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a class="nhsuk-link" href="/{{ version }}/are-you-pregnant">
+            Change <span class="nhsuk-u-visually-hidden">Pregnant</span>
+          </a>
+        </dd>
+      </div>
+        {% else %}
+        
+      {% endif %}
+
+      </dl>
+  
+      <h2>Permission and contact</h2>
+      <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-7">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Permission for a researcher to contact me about taking part in clinical trials to find a vaccine for coronavirus
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['give-permission'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/permission">
+              Change <span class="nhsuk-u-visually-hidden">Permission for a researcher to contact me about taking part in clinical trials to find a vaccine for coronavirus</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Be contacted by NHS Digital about trials for coronavirus treatment and prevention, as well as vaccines
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['hear-from-nhsd'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/hear-from-nhsd">
+              Change <span class="nhsuk-u-visually-hidden">Be contacted by NHS Digital about trials for coronavirus treatment and prevention, as well as vaccines</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Be contacted by NHS Digital about other trials that do not involve coronavirus
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['hear-from-nhsd-non-covid'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/hear-from-nhsd-non-covid">
+              Change <span class="nhsuk-u-visually-hidden">Be contacted by NHS Digital about other trials that do not involve coronavirus</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2>Send your answers and permission</h2>
+
+      <p>By sending this information you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+      <form action="/{{ version }}/confirm-email" method="post" class="form">
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button class="nhsuk-button" data-module="nhsuk-button">
+          Send
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

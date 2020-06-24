@@ -1,0 +1,48 @@
+{% extends 'layout-nhs-website.html' %}
+
+{% set version = "v4" %}
+{% set heading = "Sign up to be contacted about coronavirus vaccine research" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ heading }}</h1>
+
+      <p>This is the NHS Sign up to be contacted about this service.</p>
+
+      <p>You can use it to let researchers know you'd like to take part in clinical trials for vaccine for coronavirus (COVID-19).</p>
+
+      <p>Clinical trials are studies that compare one medicine or treatment with another. They are the only way to find effective treatments and vaccines for coronavirus.</p>
+
+      {{ warningCallout({
+        "heading": "Important",
+        "HTML": "<p>You are not joining a clinical trial when you use the Sign up to be contacted service. You're letting researchers know you're happy for them to contact you.</p>"
+      }) }}
+
+      <h2>How the Sign up tp be contacted service works</h2>
+
+      <p>We'll ask you some questions about yourself, and then ask for your consent (permission) for someone working on a clinical trial to contact you.</p>
+
+      <p>You may be contacted within weeks, months or not atall. It depends how many people are needed.</p>
+
+      <p><a href="#">Find out more about taking part in clinical trials on the Be a part of research website</a>.</p>
+
+      <h2>Who can use the Sign up to be contacted service</h2>
+
+      <p>Anyone 18 or over can use this service. But it's not likely you'll be asked to take part in clinical trials if you:</p>
+
+      <ul>
+        <li>are pregnant or breastfeeding</li>
+        <li>have a certain conditions, for example diabetes</li>
+        <li>are taking certain medicines</li>
+      </ul>
+
+      {{ reviewDate({
+        "lastReview": "18 June 2020",
+        "nextReview": "18 June 2020"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set backLink = "ethnic-group" %}
+{% set heading = "Does the work you're doing at the moment mean you have face to face contact with different people every day?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/tested" method="post" class="form">
+        
+        {% set workOtherHtml %}
+        {{ input({
+          id: "work-other",
+          name: "work-other",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Tell us what work you do"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ radios({
+        idPrefix: "work",
+        name: "work",
+        fieldset: {
+          legend: {
+            text: heading,
+            isPageHeading: true,
+            classes: "nhsuk-fieldset__legend--l"
+          }
+        },
+        "hint": {
+          "text": "Some examples of this are nurse, doctor, care worker, transport worker, shop worker, taxi driver, delivery worker, police officer, food factory worker"
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("work", "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("work", "No")
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "I do not work",
+            text: "I do not work",
+            checked: checked("work", "I do not work"),
+            label: {
+              classes: 'nhsuk-label'
+            }
+          }
+        ]
+      }) }}
+
+      {{ details({
+        "text": "Why we are asking this question",
+        "HTML": "
+          <p>We're asking this because face to face contact with different people makes you more at risk of getting coronavirus. Knowing if you're more at risk can help researchers match you to a relevant trial.</p>
+        "
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+
+
+        </form>
+
+
+
+    </div>
+  </div>
+{% endblock %}
+
+Some examples of this are nurse, doctor, care worker, transport worker, shop worker, taxi driver, delivery worker, police officer. 

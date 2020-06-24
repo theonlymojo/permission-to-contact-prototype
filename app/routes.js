@@ -4,112 +4,222 @@ const router = express.Router();
 
 // Add your routes here - above the module.exports line
 
-// Over 18 routing from DOB - V3
-router.post('/v3/country', function (req, res) {
+// Over 18 routing from DOB - V4
+router.post('/v4/country', function (req, res) {
 
   var install = req.session.data['dob-year']
 
   if (install > "2002"){
-    res.redirect('/v3/under18')
+    res.redirect('/v4/under18')
   }
   else {
-    res.redirect('/v3/country')
+    res.redirect('/v4/country')
   }
 
 })
 
-// No permission confirmation - V3
-router.post('/v3/no-permission-confirmed', function (req, res) {
+// No permission confirmation - V4
+router.post('/v4/no-permission-confirmed', function (req, res) {
 
   var install = req.session.data['no-permission-confirmed']
 
   if (install == "I do not give my permission"){
-    res.redirect('/v3/no-permission-confirmed')
+    res.redirect('/v4/no-permission-confirmed')
   }
   else {
-    res.redirect('/v3/permission')
+    res.redirect('/v4/permission')
   }
 
 })
 
-// Pregnant routing - V3
-router.post('/v3/are-you-pregnant', function (req, res) {
+// Pregnant routing - V4
+router.post('/v4/are-you-pregnant', function (req, res) {
 
   var install = req.session.data['sex']
 
   if (install == "Female"){
-    res.redirect('/v3/are-you-pregnant')
+    res.redirect('/v4/are-you-pregnant')
   }
   else {
-    res.redirect('/v3/permission')
+    res.redirect('/v4/permission-interruption')
   }
 
 })
 
-// Tested routing - V3
-router.post('/v3/test-results', function (req, res) {
+// Tested routing - V4
+router.post('/v4/test-results', function (req, res) {
 
   var install = req.session.data['tested']
 
   if (install == "Yes"){
-    res.redirect('/v3/test-results')
+    res.redirect('/v4/test-results')
   }
   else {
-    res.redirect('/v3/cancer')
+    res.redirect('/v4/health-questions-interruption')
   }
 
 })
 
-// Northern Ireland routing - V3
-router.post('/v3/postcode', function (req, res) {
+// Northern Ireland routing - V4
+router.post('/v4/postcode', function (req, res) {
 
   var install = req.session.data['country']
 
   if (install == "Northern Ireland"){
-    res.redirect('/v3/NI-postcode')
+    res.redirect('/v4/NI-postcode')
   }
   if (install == "None of these"){
-    res.redirect('/v3/outside-uk')
+    res.redirect('/v4/outside-uk')
   }
   else {
-    res.redirect('/v3/postcode')
+    res.redirect('/v4/postcode')
   }
 
 })
 
-// Permission routing - V3
-router.post('/v3/hear-from-nhsd', function (req, res) {
+// Permission routing - V4
+router.post('/v4/hear-from-nhsd', function (req, res) {
 
   var install = req.session.data['give-permission']
 
   if (install == "No, I do not give my permission"){
-    res.redirect('/v3/no-permission')
+    res.redirect('/v4/no-permission')
   }
   else {
-    res.redirect('/v3/hear-from-nhsd')
+    res.redirect('/v4/hear-from-nhsd')
   }
 
 })
 
-// Ethnicity question routing - V3
-router.post('/v3/work', function (req, res) {
+// Ethnicity question routing - V4
+router.post('/v4/work', function (req, res) {
 
   var install = req.session.data['ethnic-group']
 
   if (install == "White"){
-    res.redirect('/v3/ethnic-group-white')
+    res.redirect('/v4/ethnic-group-white')
   }
   if (install == "Mixed or multiple ethnic groups"){
-    res.redirect('/v3/ethnic-group-mixed')
+    res.redirect('/v4/ethnic-group-mixed')
   }
   if (install == "Asian or Asian British"){
-    res.redirect('/v3/ethnic-group-asian')
+    res.redirect('/v4/ethnic-group-asian')
   }
   if (install == "Black, African, Black British or Caribbean"){
-    res.redirect('/v3/ethnic-group-black')
+    res.redirect('/v4/ethnic-group-black')
   }
   else {
-    res.redirect('/v3/work')
+    res.redirect('/v4/work')
+  }
+
+})
+
+// Over 18 routing from DOB - V4
+router.post('/v4/country', function (req, res) {
+
+  var install = req.session.data['dob-year']
+
+  if (install > "2002"){
+    res.redirect('/v4/under18')
+  }
+  else {
+    res.redirect('/v4/country')
+  }
+
+})
+
+// No permission confirmation - V4
+router.post('/v4/no-permission-confirmed', function (req, res) {
+
+  var install = req.session.data['no-permission-confirmed']
+
+  if (install == "I do not give my permission"){
+    res.redirect('/v4/no-permission-confirmed')
+  }
+  else {
+    res.redirect('/v4/permission')
+  }
+
+})
+
+// Pregnant routing - V4
+router.post('/v4/are-you-pregnant', function (req, res) {
+
+  var install = req.session.data['sex']
+
+  if (install == "Female"){
+    res.redirect('/v4/are-you-pregnant')
+  }
+  else {
+    res.redirect('/v4/permission')
+  }
+
+})
+
+// Tested routing - V4
+router.post('/v4/test-results', function (req, res) {
+
+  var install = req.session.data['tested']
+
+  if (install == "Yes"){
+    res.redirect('/v4/test-results')
+  }
+  else {
+    res.redirect('/v4/cancer')
+  }
+
+})
+
+// Northern Ireland routing - V4
+router.post('/v4/postcode', function (req, res) {
+
+  var install = req.session.data['country']
+
+  if (install == "Northern Ireland"){
+    res.redirect('/v4/NI-postcode')
+  }
+  if (install == "None of these"){
+    res.redirect('/v4/outside-uk')
+  }
+  else {
+    res.redirect('/v4/postcode')
+  }
+
+})
+
+// Permission routing - V4
+router.post('/v4/hear-from-nhsd', function (req, res) {
+
+  var install = req.session.data['give-permission']
+
+  if (install == "No, I do not give my permission"){
+    res.redirect('/v4/no-permission')
+  }
+  else {
+    res.redirect('/v4/hear-from-nhsd')
+  }
+
+})
+
+// Ethnicity question routing - V4
+router.post('/v4/work', function (req, res) {
+
+  var install = req.session.data['ethnic-group']
+
+  if (install == "White"){
+    res.redirect('/v4/ethnic-group-white')
+  }
+  if (install == "Mixed or multiple ethnic groups"){
+    res.redirect('/v4/ethnic-group-mixed')
+  }
+  if (install == "Asian or Asian British"){
+    res.redirect('/v4/ethnic-group-asian')
+  }
+  if (install == "Black, African, Black British or Caribbean"){
+    res.redirect('/v4/ethnic-group-black')
+  }
+  else {
+    res.redirect('/v4/work')
   }
 
 })

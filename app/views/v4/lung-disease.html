@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set backLink = "asthma" %}
+{% set heading = "Has a doctor told you that you have long-term lung condition?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/liver-disease" method="post" class="form">
+
+        {{ radios({
+          "idPrefix": "lung-disease",
+          "name": "lung-disease",
+          "fieldset": {
+            "legend": {
+              "text": heading,
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
+          },
+          
+        "hint": {
+          "text": "Some examples are emphysema, chronic bronchitis, cystic fibrosis, idiopathic pulmonary fibrosis"
+        },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes",
+              "name": "Yes",
+              "checked": checked("lung-disease", "Yes")
+            },
+            {
+              "value": "No",
+              "text": "No",
+              "name": "No",
+              "checked": checked("lung-disease", "No")
+            },
+            {
+              divider: "or"
+            },
+            {
+              "value": "I'm not sure",
+              "text": "I'm not sure",
+              "name": "I'm not sure",
+              "checked": checked("lung-disease", "I'm not sure")
+            }
+          ]
+        }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

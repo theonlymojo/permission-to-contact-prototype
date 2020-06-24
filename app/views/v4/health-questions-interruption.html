@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% if (data['tested'] == "Yes") %}
+  {% set backLink = "test-results" %}
+{% else %}
+  {% set backLink = "tested" %}
+{% endif %}
+{% set heading = "We'll now ask you questions about your health" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-card nhsuk-card--blue nhsuk-u-padding-1">
+        <div class="nhsuk-card__content">
+          <h1 class="nhsuk-card__heading nhsuk-u-margin-bottom-4"><h1>{{ heading }}</h1></h1>
+          <p>We'll ask about:</p>
+      <ul>
+        <li>asthma</li>
+        <li>bleeding disorders</li>
+        <li>cancer treatment</li>
+        <li>conditions that affect your immune system</li>
+        <li>diabetes</li>
+        <li>heart conditions</li>
+        <li>lung conditions</li>
+        <li>liver conditions</li>
+        {% if (data['sex'] == "Female") %}
+        <li>pregnancy</li>
+        {% else %}
+        
+        {% endif %}
+        <li>weight</li>
+      </ul>
+      <p>You do not have to answer any of these questions if you do not want to.</p>
+      <p>We're asking about your health so we:
+        <ul>
+          <li>get the right mix of different people taking part in health research</li>
+          <li>make sure any vaccines developed will work for everyone</li>
+        </ul>
+          <form action="weight" method="post">
+            <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

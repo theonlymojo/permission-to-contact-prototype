@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set backLink = "ethnic-group" %}
+{% set heading = "Which one best describes your Black, African, Black British or Caribbean background?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/work" method="post" class="form">
+
+      {% set blackOtherHtml %}
+        {{ input({
+          id: "ethnicity-other",
+          name: "ethnicity-other",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Your Black background (optional)"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ radios({
+        idPrefix: "ethnic-group",
+        name: "ethnic-group",
+        fieldset: {
+          legend: {
+            text: heading,
+            isPageHeading: true,
+            classes: "nhsuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "African",
+            text: "African",
+            checked: checked("ethnic-group", "African")
+          },
+          {
+            text: "Caribbean",
+            text: "Caribbean",
+            checked: checked("ethnic-group", "Caribbean")
+          },
+          {
+            value: "Another Black background",
+            text: "Another Black background",
+            checked: checked("ethnic-group", "Another Black background"),
+            conditional: {
+              html: blackOtherHtml
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Prefer not to say",
+            text: "Prefer not to say",
+            checked: checked("ethnic-group-black", "Prefer not to say"),
+            label: {
+              classes: 'nhsuk-label'
+            }
+          }
+        ]
+      }) }}
+
+      {{ details({
+        "text": "Why we are asking this question",
+        "HTML": "
+          <p>We're asking this so we can make sure there is the right mix of people from different ethnic groups taking part in health research.</p>
+          <p>This is so we can make sure any vaccines developed will work for everyone.</p>
+        "
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

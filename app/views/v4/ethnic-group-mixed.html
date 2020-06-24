@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set backLink = "ethnic-group" %}
+{% set heading = "Which one best describes your Mixed or Multiple ethnic groups background?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/work" method="post" class="form">
+
+      {% set mixedOtherHtml %}
+        {{ input({
+          id: "ethnicity-other",
+          name: "ethnicity-other",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Your Mixed background (optional)"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ radios({
+        idPrefix: "ethnic-group",
+        name: "ethnic-group",
+        fieldset: {
+          legend: {
+            text: heading,
+            isPageHeading: true,
+            classes: "nhsuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Asian and White",
+            text: "Asian and White",
+            checked: checked("ethnic-group", "Asian and White")
+          },
+          {
+            value: "Black African and White",
+            text: "Black African and White",
+            checked: checked("ethnic-group", "Black African and White")
+          },
+          {
+            value: "Black Caribbean and White",
+            text: "Black Caribbean and White",
+            checked: checked("ethnic-group", "Black Caribbean and White")
+          },
+          {
+            value: "Another mixed background",
+            text: "Another mixed background",
+            checked: checked("ethnic-group", "Another Mixed background"),
+            conditional: {
+              html: mixedOtherHtml
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Prefer not to say",
+            text: "Prefer not to say",
+            checked: checked("ethnic-group", "Prefer not to say"),
+            label: {
+              classes: 'nhsuk-label'
+            }
+          }
+        ]
+      }) }}
+
+      {{ details({
+        "text": "Why we are asking this question",
+        "HTML": "
+          <p>We're asking this so we can make sure there is the right mix of people from different ethnic groups taking part in health research.</p>
+          <p>This is so we can make sure any vaccines developed will work for everyone.</p>
+        "
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
