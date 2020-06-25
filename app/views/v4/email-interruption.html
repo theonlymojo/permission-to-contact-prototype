@@ -1,8 +1,8 @@
 {% extends 'layout.html' %}
 
 {% set version = "v4" %}
-{% set backLink = "confirmed-email" %}
-{% set heading = "You've confirmed your email address, we'll now ask you some questions" %}
+{% set backLink = "country" %}
+{% set heading = "Before we ask for anymore information, we need you to confirm your email address." %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
@@ -12,10 +12,8 @@
       <div class="nhsuk-card nhsuk-card--blue nhsuk-u-padding-1">
         <div class="nhsuk-card__content">
           <h1 class="nhsuk-card__heading nhsuk-u-margin-bottom-4"><h1>{{ heading }}</h1></h1>
-          <p>We will ask for some information about you, including your sex registered at birth, gender, ethnic group and health.</p>
-      <p>We ask this so we can get the right mix of different people taking part in health research and make sure any vaccines developed will work for everyone.</p>
-      <p>Then we'll ask for your permission to contact you.</p>
-          <form action="name" method="post">
+          <p>This is so we can make sure you're you.</p>
+          <form action="email" method="post">
             <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
           </form>
         </div>

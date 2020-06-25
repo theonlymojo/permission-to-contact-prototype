@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set heading = "Confirm that this is your email address" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/what-we-ask-for" method="post" class="form">
+
+        <div class="nhsuk-form-group">
+
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                Confirm {{ data['email'] }} is your email address to continue signing up to be contacted about coronavirus vaccine research
+              </h1>
+            </legend>
+
+            <div class="nhsuk-radios">
+
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="confirm-email-yes" name="confirm-email" type="radio" value="Yes, that is correct">
+                <label class="nhsuk-label nhsuk-radios__label" for="confirm-email-yes">
+                  Yes, that is my email address
+                </label>
+              </div>
+
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="confirm-email-no" name="confirm-email" type="radio" value="No, that is not my email address">
+                <label class="nhsuk-label nhsuk-radios__label" for="confirm-email-no">
+                  No, that is not my email address
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+
+        </div>
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

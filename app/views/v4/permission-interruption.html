@@ -1,11 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "v4" %}
-{% if (data['sex'] == "Female") %}
-  {% set backLink = "are-you-pregnant" %}
-{% else %}
-  {% set backLink = "cancer" %}
-{% endif %}
+{% set backLink = "immune-system" %}
 {% set heading = "We'll now ask for your permission to be contacted" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 

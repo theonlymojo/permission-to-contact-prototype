@@ -1,19 +1,19 @@
 {% extends 'layout.html' %}
 
 {% set version = "v4" %}
-{% set backLink = "health-questions-interruption" %}
-{% set heading = "Are you pregnant, breastfeeding or planning to get pregnant in the next 6 months?" %}
+{% set backLink = " " %}
+{% set heading = "Are you 18 or over?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/diabetes" method="post" class="form">
+      <form action="/{{ version }}/country" method="post" class="form">
 
         {{ radios({
-        "idPrefix": "areyoupregnant",
-        "name": "areyoupregnant",
+        "idPrefix": "18orover",
+        "name": "18orover",
         "fieldset": {
           "legend": {
             "text": heading,
@@ -26,22 +26,13 @@
             "value": "Yes",
             "text": "Yes",
             "name": "Yes",
-            "checked": checked("areyoupregnant", "Yes")
+            "checked": checked("18orover", "Yes")
           },
           {
             "value": "No",
             "text": "No",
             "name": "No",
-            "checked": checked("areyoupregnant", "No")
-          },
-          {
-            divider: "or"
-          },
-          {
-            "value": "I'm not sure",
-            "text": "I'm not sure",
-            "name": "I'm not sure",
-            "checked": checked("areyoupregnant", "I'm not sure")
+            "checked": checked("18orover", "No")
           }
         ]
       }) }}

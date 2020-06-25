@@ -4,8 +4,22 @@ const router = express.Router();
 
 // Add your routes here - above the module.exports line
 
-// Over 18 routing from DOB - V4
+// Over 18 routing - V4
 router.post('/v4/country', function (req, res) {
+
+  var install = req.session.data['18orover']
+
+  if (install == "No"){
+    res.redirect('/v4/under18')
+  }
+  else {
+    res.redirect('/v4/country')
+  }
+
+})
+
+/* Over 18 routing from DOB - V4
+router.post('/v4/postcode', function (req, res) {
 
   var install = req.session.data['dob-year']
 
@@ -13,7 +27,23 @@ router.post('/v4/country', function (req, res) {
     res.redirect('/v4/under18')
   }
   else {
-    res.redirect('/v4/country')
+    res.redirect('/v4/postcode')
+  }
+
+})
+
+*/
+
+// Confirm email - v4
+router.post('/v4/what-we-ask-for', function (req, res) {
+
+  var install = req.session.data['confirm-email']
+
+  if (install == "No, that is not my email address"){
+    res.redirect('/v4/email')
+  }
+  else {
+    res.redirect('/v4/what-we-ask-for')
   }
 
 })
@@ -41,7 +71,7 @@ router.post('/v4/are-you-pregnant', function (req, res) {
     res.redirect('/v4/are-you-pregnant')
   }
   else {
-    res.redirect('/v4/permission-interruption')
+    res.redirect('/v4/diabetes')
   }
 
 })
@@ -56,6 +86,20 @@ router.post('/v4/test-results', function (req, res) {
   }
   else {
     res.redirect('/v4/health-questions-interruption')
+  }
+
+})
+
+// Country routing - V4
+router.post('/v4/email-interruption', function (req, res) {
+
+  var install = req.session.data['country']
+
+  if (install == "None of these"){
+    res.redirect('/v4/outside-uk')
+  }
+  else {
+    res.redirect('/v4/email-interruption')
   }
 
 })
