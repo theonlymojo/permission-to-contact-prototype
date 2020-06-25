@@ -15,32 +15,18 @@
 
       <div class="nhsuk-card nhsuk-card--blue nhsuk-u-padding-1">
         <div class="nhsuk-card__content">
-          <h1 class="nhsuk-card__heading nhsuk-u-margin-bottom-4"><h1>{{ heading }}</h1></h1>
-          <p>We'll ask about:</p>
-      <ul>
-        <li>asthma</li>
-        <li>bleeding disorders</li>
-        <li>cancer treatment</li>
-        <li>conditions that affect your immune system</li>
-        <li>diabetes</li>
-        <li>heart conditions</li>
-        <li>lung conditions</li>
-        <li>liver conditions</li>
-        {% if (data['sex'] == "Female") %}
-        <li>pregnancy</li>
-        {% else %}
-        
-        {% endif %}
-        <li>weight</li>
-      </ul>
-      <p>You do not have to answer any of these questions if you do not want to.</p>
-      <p>We're asking about your health so we:
-        <ul>
-          <li>get the right mix of different people taking part in health research</li>
-          <li>make sure any vaccines developed will work for everyone</li>
-        </ul>
+          <h1 class="nhsuk-card__heading nhsuk-u-margin-bottom-4">{{ heading }}</h1>
+          <p>We're asking about your health so we:</p>
+          <ul>
+            <li>get the right mix of different people taking part in health research</li>
+            <li>make sure any vaccines developed will work for everyone</li>
+          </ul>
+
+          <p>We'll ask about things like asthma, cancer treatment and heart conditions.</p>
+          <p>You do not have to answer any of these questions if you do not want to.</p>
+          
           <form action="are-you-pregnant" method="post">
-            <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
+            <input type="submit" class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-bottom-0" value="Continue">
           </form>
         </div>
       </div>
