@@ -1,0 +1,22 @@
+{% extends 'layout-email.html' %}
+
+{% set version = "emails-v2" %}
+{% set bodyClasses = "app-email-body" %}
+{% set emailFrom = "contact-permissions@nhs.net" %}
+{% set emailTo = "thebeakking@gmail.com" %}
+{% set emailSubject = "Your NHS Verification Code" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="nhsuk-u-visually-hidden">{{ emailSubject }}</h1>
+
+  <p class="nhsuk-body-l">Your security code is:</p>
+
+  <p class="nhsuk-body-l"><strong>565432</strong></p>
+
+  <p class="nhsuk-body-l">After 30 minutes your security code will not work.</p>
+
+{% endblock %}
