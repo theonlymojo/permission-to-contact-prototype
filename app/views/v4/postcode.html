@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "v4" %}
-{% set backLink = "country" %}
+{% set backLink = "dob" %}
 {% set heading = "What is your postcode?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
@@ -9,7 +9,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/email" method="post" class="form">
+      <form action="/{{ version }}/your-sex" method="post" class="form">
 
         {{ input({
           "label": {

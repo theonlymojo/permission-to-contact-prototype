@@ -2,7 +2,7 @@
 
 {% set version = "v4" %}
 {% set backLink = "permission" %}
-{% set heading = "Do you also want to be contacted by NHS Digital about coronavirus health research for prevention and treatment?" %}
+{% set heading = "Do you want to be contacted by NHS Digital about other health research?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 
@@ -10,33 +10,39 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/hear-from-nhsd-non-covid" method="post" class="form">
-
-        {{ radios({
+      <form action="/{{ version }}/check-answers" method="post" class="form">
+        
+        {{ checkboxes({
           "idPrefix": "hear-from-nhsd",
           "name": "hear-from-nhsd",
           "fieldset": {
             "legend": {
               "text": heading,
               "classes": "nhsuk-fieldset__legend--l",
-              "isPageHeading": true
+              isPageHeading: true
             }
           },
           "hint": {
-            "text": "You will not be contacted by anyone outside of NHS Digital"
+            "text": "Select all that apply"
           },
           "items": [
             {
-              "value": "Yes, I want to be contacted by NHS Digital about coronavirus health research",
-              "text": "Yes, I want to be contacted by NHS Digital about coronavirus health research",
-              "name": "Yes, I want to be contacted by NHS Digital about coronavirus health research",
-              "checked": checked("hear-from-nhsd", "Yes, I want to be contacted by NHS Digital about coronavirus health research")
+              "value": "Yes, I want to be contacted about coronavirus health research for prevention and treatment",
+              "text": "Yes, I want to be contacted about coronavirus health research for prevention and treatment",
+              "checked": checked("hear-from-nhsd", "Yes, I want to be contacted about coronavirus health research for prevention and treatment")
             },
             {
-              "value": "No, I do not want to be contacted by NHS Digital about coronavirus health research",
-              "text": "No, I do not want to be contacted by NHS Digital about coronavirus health research",
-              "name": "No, I do not want to be contacted by NHS Digital about coronavirus health research",
-              "checked": checked("hear-from-nhsd", "No, I do not want to be contacted by NHS Digital about coronavirus health research")
+              "value": "Yes, I want to be contacted about other trials that do not involve coronavirus",
+              "text": "Yes, I want to be contacted about other trials that do not involve coronavirus",
+              "checked": checked("hear-from-nhsd", "Yes, I want to be contacted about other trials that do not involve coronavirus")
+            },
+            {
+              divider: "or"
+            },
+            {
+              "value": "No, I do not want to be contacted by NHS Digital about other health research",
+              "text": "No, I do not want to be contacted by NHS Digital about other health research",
+              "checked": checked("hear-from-nhsd", "No, I do not want to be contacted by NHS Digital about other health research")
             }
           ]
         }) }}

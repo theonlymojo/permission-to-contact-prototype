@@ -1,15 +1,6 @@
 {% extends 'layout.html' %}
-
+{% set backLink = "email-interruption" %}
 {% set version = "v4" %}
-{% if (data['country'] == "Northern Ireland") %}
-{% if (data['ni-town'] >= "0") %}
-  {% set backLink = "NI-town" %}
-{% else %}
-  {% set backLink = "NI-postcode" %}
-{% endif %}
-{% else %}
-  {% set backLink = "postcode" %}
-{% endif %}
 {% set heading = "What is your email address?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
@@ -17,7 +8,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/name" method="post" class="form">
+      <form action="/{{ version }}/email-sent" method="post" class="form">
 
         <div class="nhsuk-form-group">
           <h1 class="nhsuk-label-wrapper">

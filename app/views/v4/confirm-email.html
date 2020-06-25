@@ -1,34 +1,20 @@
-{% extends 'layout.html' %}
+{% extends 'layout-email.html' %}
 
 {% set version = "v4" %}
-{% set heading = "Confirm your email address" %}
-{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set bodyClasses = "app-email-body" %}
+{% set emailFrom = "contact-permissions@nhs.net" %}
+{% set emailTo = "joe.bloggs@google.com" %}
+{% set emailSubject = "Confirm your email address" %}
 
 {% block beforeMain %}
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-u-margin-bottom-4">{{ heading }}</h1>
+  <h1 class="nhsuk-u-visually-hidden">{{ emailSubject }}</h1>
 
-      <p>We have sent you an email. Please click on the link in the email to confirm your email address.</p>
+  <p>Confirm your email address to sign up to be contacted about coronavirus vaccine research.</p>
 
-      <div class="nhsuk-alert">
-        <p class="nhsuk-u-font-weight-bold">Your permission will not be sent until you click on the link in the email.</p>
-      </div>
+  <a class="nhsuk-button" href="/v4/confirmed-email">Confirm email address</a>
 
-      {{ details({
-        "text": "Not received a email?",
-        "HTML": "
-        <p>Allow up to 24 hours for the email to arrive.</p>
-        <p>If you have not received the email, check your spam and junk mail folders.</p>
-        "
-      }) }}
-
-      <p class="nhsuk-body-s nhsuk-u-margin-top-9"><a href="/emails/confirm-email">Next step (prototype only)</a></p>
-
-    </div>
-  </div>
 {% endblock %}
