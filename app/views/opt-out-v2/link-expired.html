@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "opt-out-v2" %}
-{% set heading = "Email address not registered" %}
+{% set heading = "Confirm email link expired" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeMain %}
@@ -13,9 +13,9 @@
 
       <h1 class="nhsuk-heading-l">{{ heading }}</h1>
 
-      <p>The email address {{ data['opt-out-email'] }} has not been used to sign up to be contacted about coronavirus vaccine research.</p> 
+      <p>The link expired because it has been longer than 24 hours.</p>
 
-      <p>You can <a href='/{{ version }}/'>enter your email address again</a> if you got it wrong.</p>
+      <p>You can try again by <a href='/{{ version }}/'>entering your email address again</a>.</p>
 
     </div>
   </div>
