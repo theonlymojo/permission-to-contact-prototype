@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% set version = "opt-out-v2" %}
+{% set heading = "Check your email" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">{{ heading }}</h1>
+
+      <p>We have sent you an email to {{ data['opt-out-email'] }}</p> 
+      <p>Select the button in the email to confirm your email address.</p>
+      <div class="nhsuk-inset-text nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
+        <p>You cannot withdraw your permission until you confirm your email address.</p>
+      </div>
+
+      <h2 class="nhsuk-heading-s nhsuk-u-padding-top-2">Not received an email?</h2>
+      <p>You can <a href='/{{ version }}/'>enter your email address again</a> if you got it wrong.</p>
+      <p>Your email might take a few minutes to arrive. If you do not get an email, check your spam folder.</p>
+
+      <p class="nhsuk-body-s nhsuk-u-margin-top-9"><a href="/emails-v2/confirm-email-opt-out">Next step (prototype only)</a></p>
+
+    </div>
+  </div>
+{% endblock %}
