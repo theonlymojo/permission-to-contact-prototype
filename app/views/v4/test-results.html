@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set backLink = "tested" %}
+{% set heading = "What were your test results?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/health-questions-interruption" method="post" class="form">
+
+       {{ radios({
+        "idPrefix": "test-results",
+        "name": "test-results",
+        "fieldset": {
+          "legend": {
+            "text": heading,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "Positive, I had coronavirus",
+            "text": "Positive, I had coronavirus",
+            "name": "Positive, I had coronavirus",
+            "checked": checked("test-results", "Positive, I had coronavirus")
+          },
+          {
+            "value": "Negative, I did not have coronavirus",
+            "text": "Negative, I did not have coronavirus",
+            "name": "Negative, I did not have coronavirus",
+            "checked": checked("test-results", "Negative, I did not have coronavirus")
+          },
+          {
+            "value": "Unclear, void, borderline or inconclusive",
+            "text": "Unclear, void, borderline or inconclusive",
+            "name": "Unclear, void, borderline or inconclusive",
+            "checked": checked("test-results", "Unclear, void, borderline or inconclusive")
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "I'm waiting for my results",
+            text: "I'm waiting for my results",
+            checked: checked("test-results", "I'm waiting for my results"),
+            label: {
+              classes: 'nhsuk-label'
+            }
+          }
+        ]
+      }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

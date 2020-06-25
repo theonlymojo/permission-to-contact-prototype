@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set heading = "Sign up to be contacted about coronavirus vaccine research" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ heading }}</h1>
+
+      <p>Use this service to give permission (consent) for researchers to contact you about taking part in health research for a coronavirus (COVID-19) vaccine.</p>
+      <p>Health research aims to find the most effective medicines and treatments. People who carry out health research are called researchers.</p>
+      <p>Research can happen in the NHS, or other places like drug companies or universities.</p>
+
+      {{ warningCallout({
+        "heading": "Important",
+        "HTML": "<p>You are not signing up to take part in specific research when you use this service. You are letting researchers know you're happy for them to contact you, if they think you might be suitable to take part in their research.</p>"
+      }) }}
+      <p>Find out more about taking part in health research at the <a href="https://www.bepartofresearch.nihr.ac.uk/">Be Part of Research</a> website.</p>
+      <p>You can use this service if you:</p>
+      <ul>
+        <li>are 18 or over, and</li>
+        <li>live in the UK</li>
+      </ul>
+
+      <a href="/{{ version }}/what-we-ask-for" class="nhsuk-button nhsuk-u-margin-bottom-7 nhsuk-u-margin-top-3">
+        Start now
+      </a>
+
+      <h2>Withdraw your permission</h2>
+      <p>Find out how to <a href="/opt-out-v1/opt-out">withdraw your permission to be contacted about coronavirus vaccine research</a>.</p>
+
+    </div>
+  </div>
+{% endblock %}

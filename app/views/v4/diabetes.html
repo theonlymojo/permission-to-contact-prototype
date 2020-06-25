@@ -1,19 +1,19 @@
 {% extends 'layout.html' %}
 
-{% set version = "v3" %}
-{% set backLink = "asthma" %}
-{% set heading = "Has a doctor told you that you have a condition that affects your immune system?" %}
+{% set version = "v4" %}
+{% set backLink = "weight" %}
+{% set heading = "Has a doctor told you that you have diabetes?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/cardiac-disease" method="post" class="form">
+      <form action="/{{ version }}/asthma" method="post" class="form">
 
         {{ radios({
-          "idPrefix": "immune-system",
-          "name": "immune-system",
+          "idPrefix": "diabetes",
+          "name": "diabetes",
           "fieldset": {
             "legend": {
               "text": heading,
@@ -22,20 +22,20 @@
             }
           },
           "hint": {
-            "text": "Some examples are a current or previous diagnosis of immunocompromising condition, immune-mediated disease, or other immunosuppressive condition"
+            "text": "Including pre-diabetes, type 1 and type 2"
           },
           "items": [
             {
               "value": "Yes",
               "text": "Yes",
               "name": "Yes",
-              "checked": checked("immune-system", "Yes")
+              "checked": checked("diabetes", "Yes")
             },
             {
               "value": "No",
               "text": "No",
               "name": "No",
-              "checked": checked("immune-system", "No")
+              "checked": checked("diabetes", "No")
             },
             {
               divider: "or"
@@ -44,7 +44,7 @@
               "value": "I'm not sure",
               "text": "I'm not sure",
               "name": "I'm not sure",
-              "checked": checked("immune-system", "I'm not sure")
+              "checked": checked("diabetes", "I'm not sure")
             }
           ]
         }) }}

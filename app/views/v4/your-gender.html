@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set backLink = "your-sex" %}
+{% set heading = "Is your gender the same as the sex you were registered at birth?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      
+      <form action="/{{ version }}/ethnic-group" method="post" class="form">
+
+        {% set genderOtherHtml %}
+        {{ input({
+          id: "gender-other",
+          name: "gender-other",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Your gender"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ radios({
+        "idPrefix": "gender",
+        "name": "gender",
+        "fieldset": {
+          "legend": {
+            "text": heading,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "Yes",
+            "text": "Yes",
+            "name": "Yes",
+            "checked": checked("gender", "Yes")
+          },
+          {
+            "value": "No",
+            "text": "No",
+            "name": "No",
+            "checked": checked("gender", "Your gender"),
+            conditional: {
+              html: genderOtherHtml
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            "value": "Prefer not to say",
+            "text": "Prefer not to say",
+            "name": "Prefer not to say",
+            "checked": checked("gender", "Prefer not to say")
+          }
+        ]
+      }) }}
+
+      {{ details({
+        "text": "Why we are asking this question",
+        "HTML": "
+          <p>We're asking this to...</p>
+        "
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

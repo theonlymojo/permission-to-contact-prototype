@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set backLink = "hear-from-nhsd" %}
+{% set heading = "Do you also want to be contacted by NHS Digital about other trials that do not involve coronavirus?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/check-answers" method="post" class="form">
+
+        {{ radios({
+          "idPrefix": "hear-from-nhsd-non-covid",
+          "name": "hear-from-nhsd-non-covid",
+          "fieldset": {
+            "legend": {
+              "text": heading,
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
+          },
+          "hint": {
+            "text": "You will not be contacted by anyone outside of NHS Digital"
+          },
+          "items": [
+            {
+              "value": "Yes, I want to be contacted by NHS Digital about other trials",
+              "text": "Yes, I want to be contacted by NHS Digital about other trials",
+              "name": "Yes, I want to be contacted by NHS Digital about other trials",
+              "checked": checked("hear-from-nhsd-non-covid", "Yes, I want to be contacted by NHS Digital about other trials")
+            },
+            {
+              "value": "No, I do not want to be contacted by NHS Digital about other trials",
+              "text": "No, I do not want to be contacted by NHS Digital about other trials",
+              "name": "No, I do not want to be contacted by NHS Digital about other trials",
+              "checked": checked("hear-from-nhsd-non-covid", "No, I do not want to be contacted by NHS Digital about other trials")
+            }
+          ]
+        }) }}
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

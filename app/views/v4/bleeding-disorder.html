@@ -1,19 +1,19 @@
 {% extends 'layout.html' %}
 
-{% set version = "v3" %}
-{% set backLink = "asthma" %}
-{% set heading = "Has a doctor told you that you have a condition that affects your immune system?" %}
+{% set version = "v4" %}
+{% set backLink = "liver-disease" %}
+{% set heading = "Has a doctor told you that you have a bleeding disorder?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ version }}/cardiac-disease" method="post" class="form">
+      <form action="/{{ version }}/immune-system" method="post" class="form">
 
         {{ radios({
-          "idPrefix": "immune-system",
-          "name": "immune-system",
+          "idPrefix": "bleeding-disorder",
+          "name": "bleeding-disorder",
           "fieldset": {
             "legend": {
               "text": heading,
@@ -22,20 +22,20 @@
             }
           },
           "hint": {
-            "text": "Some examples are a current or previous diagnosis of immunocompromising condition, immune-mediated disease, or other immunosuppressive condition"
+            "text": "Some examples are factor deficiency, coagulopathy, platelet disorder, or you've had serious bleeding or bruising after you've had an injection or had blood taken"
           },
           "items": [
             {
               "value": "Yes",
               "text": "Yes",
               "name": "Yes",
-              "checked": checked("immune-system", "Yes")
+              "checked": checked("bleeding-disorder", "Yes")
             },
             {
               "value": "No",
               "text": "No",
               "name": "No",
-              "checked": checked("immune-system", "No")
+              "checked": checked("bleeding-disorder", "No")
             },
             {
               divider: "or"
@@ -44,7 +44,7 @@
               "value": "I'm not sure",
               "text": "I'm not sure",
               "name": "I'm not sure",
-              "checked": checked("immune-system", "I'm not sure")
+              "checked": checked("bleeding-disorder", "I'm not sure")
             }
           ]
         }) }}

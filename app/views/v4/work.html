@@ -1,8 +1,8 @@
 {% extends 'layout.html' %}
 
-{% set version = "v3" %}
+{% set version = "v4" %}
 {% set backLink = "ethnic-group" %}
-{% set heading = "Does your work mean you have face to face contact with different people every day?" %}
+{% set heading = "Does the work you're doing at the moment mean you have face to face contact with different people every day?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
@@ -33,7 +33,7 @@
           }
         },
         "hint": {
-          "text": "Some examples of this are nurse, doctor, care worker, transport worker, shop worker, taxi driver, delivery worker, police officer, food procesing worker."
+          "text": "Some examples of this are nurse, doctor, care worker, transport worker, shop worker, taxi driver, delivery worker, police officer, food factory worker"
         },
         items: [
           {
@@ -58,6 +58,13 @@
             }
           }
         ]
+      }) }}
+
+      {{ details({
+        "text": "Why we are asking this question",
+        "HTML": "
+          <p>We're asking this because face to face contact with different people makes you more at risk of getting coronavirus. Knowing if you're more at risk can help researchers match you to a relevant trial.</p>
+        "
       }) }}
 
       {{ button({
