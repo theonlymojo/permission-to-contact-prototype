@@ -91,7 +91,7 @@ router.post('/v4/test-results', function (req, res) {
 })
 
 // Country routing - V4
-router.post('/v4/email-interruption', function (req, res) {
+router.post('/v4/email', function (req, res) {
 
   var install = req.session.data['country']
 
@@ -99,7 +99,7 @@ router.post('/v4/email-interruption', function (req, res) {
     res.redirect('/v4/outside-uk')
   }
   else {
-    res.redirect('/v4/email-interruption')
+    res.redirect('/v4/email')
   }
 
 })
