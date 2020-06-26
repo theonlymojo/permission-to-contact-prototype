@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "opt-out-v2" %}
-{% set heading = "Confirm that this is your email address" %}
+{% set heading = "Confirm your email address so you can withdraw your permission to be contacted" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeMain %}
@@ -13,16 +13,16 @@
 
       <form action="/{{ version }}/confirm" method="post" class="form">
 
+        <h1 class="nhsuk-heading-l">
+          {{ heading }}
+        </h1>
+
         <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              <h1 class="nhsuk-fieldset__heading">
-                Can you confirm that {% if (data['opt-out-email']) %}{{ data['opt-out-email'] }}{% else %}{{ data['email'] }}{% endif %} is your email address?
-              </h1>
+            <legend class="nhsuk-fieldset__legend">
+              Is your email address {% if (data['opt-out-email']) %}{{ data['opt-out-email'] }}{% else %}{{ data['email'] }}{% endif %}?
             </legend>
-
-            <span class="nhsuk-hint">We're asking so that you can continue to withdraw your permission to be contacted about coronavirus clinical trials</span>
 
             <div class="nhsuk-radios">
 
