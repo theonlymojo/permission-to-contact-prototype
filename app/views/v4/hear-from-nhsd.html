@@ -10,6 +10,25 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      <h1 class="nhsuk-heading-l">Get involved in other health research</h1>
+      <p>
+        There is a lot of health research going on that is not about coronavirus vaccines.
+      </p>
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            What is NHS Digital?
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>NHS Digital is part of the NHS. It provides information and technology for better health and social care.</p>
+          <p>NHS Digital also works with research organisations to support health research into coronavirus and other conditions.</p>            
+        </div>
+      </details>
+      <p>
+        You will not be contacted by anyone outside NHS Digital about this other research.
+      </p>
+
       <form action="/{{ version }}/check-answers" method="post" class="form">
         
         {{ checkboxes({
@@ -18,7 +37,7 @@
           "fieldset": {
             "legend": {
               "text": heading,
-              "classes": "nhsuk-fieldset__legend--l",
+              "classes": "nhsuk-fieldset__legend--s",
               isPageHeading: true
             }
           },
@@ -40,9 +59,9 @@
               divider: "or"
             },
             {
-              "value": "No, I do not want to be contacted by NHS Digital about other health research",
-              "text": "No, I do not want to be contacted by NHS Digital about other health research",
-              "checked": checked("hear-from-nhsd", "No, I do not want to be contacted by NHS Digital about other health research")
+              "value": "No, I do not want to be contacted about other health research",
+              "text": "No, I do not want to be contacted about other health research",
+              "checked": checked("hear-from-nhsd", "No, I do not want to be contacted about other health research")
             }
           ]
         }) }}

@@ -53,7 +53,7 @@ router.post('/v4/no-permission-confirmed', function (req, res) {
 
   var install = req.session.data['no-permission-confirmed']
 
-  if (install == "I do not give my permission"){
+  if (install == "I confirm I do not give my permission"){
     res.redirect('/v4/no-permission-confirmed')
   }
   else {
@@ -100,23 +100,6 @@ router.post('/v4/email-interruption', function (req, res) {
   }
   else {
     res.redirect('/v4/email-interruption')
-  }
-
-})
-
-// Northern Ireland routing - V4
-router.post('/v4/postcode', function (req, res) {
-
-  var install = req.session.data['country']
-
-  if (install == "Northern Ireland"){
-    res.redirect('/v4/NI-postcode')
-  }
-  if (install == "None of these"){
-    res.redirect('/v4/outside-uk')
-  }
-  else {
-    res.redirect('/v4/postcode')
   }
 
 })

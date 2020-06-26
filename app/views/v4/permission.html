@@ -9,20 +9,29 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ heading }}
+      </h1>
 
       <form action="/{{ version }}/hear-from-nhsd" method="post" class="form">
       <fieldset class="nhsuk-fieldset">
-        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl nhsuk-u-margin-bottom-5">
-          <h1 class="nhsuk-fieldset__heading">
-            {{ heading }}
-          </h1>
+        <legend class="nhsuk-fieldset__legend">
+          
+          
         </legend>
 
-        <p>I give permission for a researcher to contact me about taking part in health research to find a vaccine for coronavirus (COVID-19).</p>
+        
          
         {{ radios({
           "idPrefix": "give-permission",
           "name": "give-permission",
+          "fieldset": {
+            "legend": {
+              "classes": "nhsuk-fieldset__legend nhsuk-u-margin-bottom-4",
+              "text": "Do you give permission for researchers to contact you about taking part in health research to find a vaccine for coronavirus (COVID-19)?",
+              isPageHeading: true
+            }
+          },
           "items": [
             {
               "value": "Yes, I give my permission",

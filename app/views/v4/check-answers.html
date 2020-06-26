@@ -42,38 +42,6 @@
           </dd>
         </div>
 
-        {% if (data['country'] == "Northern Ireland") %}
-            {% if (data['ni-town'] >= "0") %}
-              <div class="nhsuk-summary-list__row">
-                <dt class="nhsuk-summary-list__key">
-                  Town
-                </dt>
-                <dd class="nhsuk-summary-list__value">
-                  {{ data['ni-town'] }}
-                </dd>
-                <dd class="nhsuk-summary-list__actions">
-                  <a class="nhsuk-link" href="/{{ version }}/NI-town">
-                    Change <span class="nhsuk-u-visually-hidden">Town</span>
-                  </a>
-                </dd>
-              </div>
-              {% else %}
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Postcode
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {{ data['ni-postcode'] }}
-              </dd>
-              <dd class="nhsuk-summary-list__actions">
-                <a class="nhsuk-link" href="/{{ version }}/NI-postcode">
-                  Change <span class="nhsuk-u-visually-hidden">Postcode</span>
-                </a>
-              </dd>
-          </div>
-          {% endif %}
-
-        {% else %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
             Postcode
@@ -87,7 +55,7 @@
             </a>
           </dd>
       </div>
-      {% endif %}
+
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
             Email address
@@ -352,14 +320,14 @@
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            Permission for a researcher to contact me about taking part in health research to find a vaccine for coronavirus
+            Permission for researchers to contact me about taking part in health research to find a vaccine for coronavirus
           </dt>
           <dd class="nhsuk-summary-list__value">
             {{ data['give-permission'] }}
           </dd>
           <dd class="nhsuk-summary-list__actions">
             <a class="nhsuk-link" href="/{{ version }}/permission">
-              Change <span class="nhsuk-u-visually-hidden">Permission for a researcher to contact me about taking part in health research to find a vaccine for coronavirus</span>
+              Change <span class="nhsuk-u-visually-hidden">Permission for researchers to contact me about taking part in health research to find a vaccine for coronavirus</span>
             </a>
           </dd>
         </div>
