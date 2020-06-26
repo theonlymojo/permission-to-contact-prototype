@@ -1,11 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "v4" %}
-{% if (data['sex'] == "Female") %}
-  {% set backLink = "are-you-pregnant" %}
-{% else %}
-  {% set backLink = "health-questions-interruption" %}
-{% endif %}
+{% set backLink = "flu-jab" %}
 {% set heading = "Has a doctor told you that you have diabetes?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 

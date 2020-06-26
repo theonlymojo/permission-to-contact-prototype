@@ -71,7 +71,7 @@ router.post('/v4/are-you-pregnant', function (req, res) {
     res.redirect('/v4/are-you-pregnant')
   }
   else {
-    res.redirect('/v4/diabetes')
+    res.redirect('/v4/flu-jab')
   }
 
 })
