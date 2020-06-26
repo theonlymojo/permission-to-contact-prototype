@@ -2,7 +2,7 @@
 
 {% set version = "v4" %}
 {% set backLink = "18-or-over" %}
-{% set heading = "Where do you live?" %}
+{% set heading = "Do you live in the UK?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
@@ -12,8 +12,8 @@
       <form action="/{{ version }}/email-interruption" method="post" class="form">
 
         {{ radios({
-        "idPrefix": "country",
-        "name": "country",
+        "idPrefix": "intheuk",
+        "name": "intheuk",
         "fieldset": {
           "legend": {
             "text": heading,
@@ -23,46 +23,18 @@
         },
         "items": [
           {
-            "value": "England",
-            "text": "England",
-            "name": "England",
-            "checked": checked("country", "England")
+            "value": "Yes",
+            "text": "Yes",
+            "name": "Yes",
+            "checked": checked("intheuk", "Yes")
           },
           {
-            "value": "Scotland",
-            "text": "Scotland",
-            "name": "Scotland",
-            "checked": checked("country", "Scotland")
-          },
-          {
-            "value": "Wales",
-            "text": "Wales",
-            "name": "Wales",
-            "checked": checked("country", "Wales")
-          },
-          {
-            "value": "Northern Ireland",
-            "text": "Northern Ireland",
-            "name": "Northern Ireland",
-            "checked": checked("country", "Northern Ireland")
-          },
-          {
-            divider: "or"
-          },
-          {
-            "value": "None of these",
-            "text": "None of these",
-            "name": "None of these",
-            "checked": checked("country", "None of these")
+            "value": "No",
+            "text": "No",
+            "name": "No",
+            "checked": checked("intheuk", "No")
           }
         ]
-      }) }}
-
-      {{ details({
-        "text": "Why we are asking this question",
-        "HTML": "
-          <p>We're asking this so researchers can contact you about health research in your area.</p>
-        "
       }) }}
         
         {{ button({
