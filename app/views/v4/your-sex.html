@@ -1,15 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "v4" %}
-{% if (data['country'] == "Northern Ireland") %}
-{% if (data['ni-town'] >= "0") %}
-  {% set backLink = "NI-town" %}
-{% else %}
-  {% set backLink = "NI-postcode" %}
-{% endif %}
-{% else %}
-  {% set backLink = "postcode" %}
-{% endif %}
+{% set backLink = "postcode" %}
 {% set heading = "What sex were you registered at birth?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
