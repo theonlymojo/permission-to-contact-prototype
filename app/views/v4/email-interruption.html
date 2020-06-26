@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set backLink = "country" %}
+{% set heading = "We need to confirm your email address before asking you any more questions" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-card nhsuk-card--blue nhsuk-u-padding-1">
+        <div class="nhsuk-card__content">
+          <h1 class="nhsuk-card__heading nhsuk-u-margin-bottom-4 nhsuk-heading-l">{{ heading }}</h1>
+          <p>We will now:</p>
+          <ul>
+            <li>need your email address</li>
+            <li>then send you an email asking you to confirm it</li>
+          </ul>
+          <p>This is so we can make sure we match the information you give us to the right email address. </p>
+          <form action="email" method="post">
+            <input type="submit" class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-bottom-0" value="Continue">
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
