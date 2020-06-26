@@ -53,6 +53,61 @@
 
       </form>
 
+
+
+
+      <form action="/{{ version }}/check-answers" method="post" class="form">
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend">
+            <h1 class="nhsuk-heading-l">
+              {{ heading }}
+            </h1>
+  
+            <p>There is a lot of health research going on that is not about coronavirus vaccines.</p>
+            <details class="nhsuk-details">
+              <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                  What is NHS Digital?
+                </span>
+              </summary>
+              <div class="nhsuk-details__text">
+                <p>NHS Digital is part of the NHS. It provides information and technology for better health and social care.</p>
+                <p>NHS Digital also works with research organisations to support health research into coronavirus and other conditions.</p>            
+              </div>
+            </details>
+          </legend>
+  
+          
+           
+          {{ radios({
+            "idPrefix": "give-permission",
+            "name": "give-permission",
+            "items": [
+              {
+                "value": "Yes, I give my permission",
+                "text": "Yes, I give my permission",
+                "name": "Yes, I give my permission",
+                "checked": checked("give-permission", "Yes, I give my permission")
+              },
+              {
+                "value": "No, I do not give my permission",
+                "text": "No, I do not give my permission",
+                "name": "No, I do not give my permission",
+                "checked": checked("give-permission", "No, I do not give my permission")
+              }
+            ]
+          }) }}
+  
+          </fieldset>
+          
+          {{ button({
+            "text": "Continue"
+          }) }}
+  
+        </form>
+
+
+
     </div>
   </div>
 {% endblock %}

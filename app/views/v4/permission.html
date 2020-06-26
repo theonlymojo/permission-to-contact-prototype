@@ -12,13 +12,15 @@
 
       <form action="/{{ version }}/hear-from-nhsd" method="post" class="form">
       <fieldset class="nhsuk-fieldset">
-        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl nhsuk-u-margin-bottom-5">
-          <h1 class="nhsuk-fieldset__heading">
+        <legend class="nhsuk-fieldset__legend">
+          <h1 class="nhsuk-heading-l">
             {{ heading }}
           </h1>
+
+          <p>I give permission for researchers to contact me about taking part in health research to find a vaccine for coronavirus (COVID-19).</p>
         </legend>
 
-        <p>I give permission for a researcher to contact me about taking part in health research to find a vaccine for coronavirus (COVID-19).</p>
+        
          
         {{ radios({
           "idPrefix": "give-permission",
