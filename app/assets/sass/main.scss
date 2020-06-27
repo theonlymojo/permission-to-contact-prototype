@@ -1,10 +1,41 @@
 // Import NHS.UK frontend library
 @import 'node_modules/nhsuk-frontend/packages/nhsuk';
 
+ /* White link mixin needs updating in the frontend
+   ========================================================================== */
+
+   @mixin nhsuk-link-style-white {
+
+    color: $color_nhsuk-white;
+  
+    &:visited {
+      color: $color_nhsuk-white;
+    }
+  
+    &:hover {
+      color: $color_nhsuk-white;
+      text-decoration: none;
+    }
+  
+    &:focus {
+      color: $nhsuk-focus-text-color;
+      outline: $nhsuk-focus-width solid transparent;
+      outline-offset: $nhsuk-focus-width;
+      text-decoration: none;
+    }
+  
+    &:active {
+      color: $nhsuk-link-active-color;
+    }
+  
+  }
+
 // Components that are not in the NHS.UK frontend library
 @import 'components/alert';
 @import 'components/card';
 @import 'components/loader';
+
+
 
 ///////////////////////////////////////////
 // Add your custom CSS/Sass styles below... 
