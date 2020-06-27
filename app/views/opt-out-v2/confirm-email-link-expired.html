@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "opt-out-v2" %}
-{% set heading = "Confirm email link expired" %}
+{% set heading = "Confirmation email link has expired" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeMain %}
@@ -13,9 +13,9 @@
 
       <h1 class="nhsuk-heading-l">{{ heading }}</h1>
 
-      <p>The link expired because it has been longer than 24 hours.</p>
+      <p>The link has expired because it has either been longer than 24 hours or superseded by another email.</p>
 
-      <p>You can try again by <a href='/{{ version }}/'>entering your email address again</a>.</p>
+      <p>To confirm your email address, you need to <a href='/{{ version }}/'>enter your email address again</a>.</p>
 
     </div>
   </div>
