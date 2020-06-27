@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% set heading = serviceName %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Loader example</h1>
+
+      <h2 class="nhsuk-heading-s">Default loader</h2>
+
+      <div class="nhsuk-loader">
+        <span class="nhsuk-loader__spinner"></span>
+      </div>
+
+      <h2 class="nhsuk-heading-s">Small loader with text</h2>
+
+      <div class="nhsuk-loader">
+        <span class="nhsuk-loader__spinner nhsuk-loader__spinner--mobile"></span>
+        <p class="nhsuk-loader__text">Searching for your current location</p>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

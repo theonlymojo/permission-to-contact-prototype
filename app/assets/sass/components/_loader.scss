@@ -1,0 +1,41 @@
+// Loader
+.nhsuk-loader__spinner {
+  animation: spin 2s linear infinite;
+  border: nhsuk-spacing(3) solid darken(#f0f4f5, 10%);
+  border-radius: 50%;
+  border-top: nhsuk-spacing(3) solid $color_nhsuk-blue;
+  display: inline-block;
+  height: 120px;
+  margin: auto;
+  width: 120px;
+
+  &.nhsuk-loader__spinner--mobile {
+    border: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
+    border-top: nhsuk-spacing(1) solid $color_nhsuk-blue;
+    height: 28px;
+    width: 28px;
+  }
+}
+
+.nhsuk-loader {
+  @include nhsuk-responsive-margin(4, bottom);
+  @include nhsuk-responsive-margin(4, top);
+  
+  position: relative;
+  
+  .nhsuk-loader__spinner--mobile {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .nhsuk-loader__text {
+    margin-bottom: 0;
+    padding-left: nhsuk-spacing(6);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
