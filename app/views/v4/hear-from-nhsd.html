@@ -12,19 +12,6 @@
 
       <h1 class="nhsuk-u-margin-bottom-5">{{ heading }}</h1>
       <p>There is a lot of health research taking place in the UK.</p>
-      <p>NHS Digital is developing this service to cover other health research that's not about coronavirus vaccines.</p>
-
-      <details class="nhsuk-details">
-        <summary class="nhsuk-details__summary">
-          <span class="nhsuk-details__summary-text">
-            What is NHS Digital?
-          </span>
-        </summary>
-        <div class="nhsuk-details__text">
-          <p>NHS Digital is part of the NHS. It provides information and technology for better health and social care.</p>
-          <p>NHS Digital also works with research organisations to support health research into coronavirus and other conditions.</p>            
-        </div>
-      </details>
 
       <form action="/{{ version }}/check-answers" method="post" class="form">
       
@@ -33,7 +20,7 @@
           "name": "hear-from-nhsd",
           "fieldset": {
             "legend": {
-              "text": "Do you agree to NHS Digital contacting you about other health research?"
+              "text": "NHS Digital plans to develop this service to provide opportunities to take part in other health research. Do you agree to NHS Digital contacting you about this?"
             }
           },
           "items": [
@@ -51,6 +38,18 @@
             }
           ]
         }) }}
+
+        <details class="nhsuk-details">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Who is NHS Digital?
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <p>NHS Digital is part of the NHS. It provides information and technology for better health and social care.</p>
+            <p>NHS Digital also works with research organisations to support health research into coronavirus and other conditions.</p>            
+          </div>
+        </details>
         
         {{ button({
           "text": "Continue"
