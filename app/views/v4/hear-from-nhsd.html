@@ -2,7 +2,7 @@
 
 {% set version = "v4" %}
 {% set backLink = "permission" %}
-{% set heading = "Do you want to be contacted by NHS Digital about other health research?" %}
+{% set heading = "Get involved in other health research" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 
@@ -10,10 +10,11 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-l">Get involved in other health research</h1>
-      <p>There is a lot of health research going on that is not about coronavirus vaccines.</p>
-      <p>NHS Digital would like to contact you about research into coronavirus prevention and treatment, and other health conditions.</p>
-      <details class="nhsuk-details">
+      <h1 class="nhsuk-u-margin-bottom-5">{{ heading }}</h1>
+      <p>There is a lot of health research taking place in the UK.</p>
+      <p>NHS Digital is developing this service to cover other health research that's not about coronavirus vaccines.</p>
+
+      <details class="nhsuk-details nhsuk-u-margin-bottom-6">
         <summary class="nhsuk-details__summary">
           <span class="nhsuk-details__summary-text">
             What is NHS Digital?
@@ -24,41 +25,31 @@
           <p>NHS Digital also works with research organisations to support health research into coronavirus and other conditions.</p>            
         </div>
       </details>
-      <p class="nhsuk-u-margin-bottom-6">You will not be contacted by anyone outside NHS Digital about this other research.</p>
 
       <form action="/{{ version }}/check-answers" method="post" class="form">
-        
-        {{ checkboxes({
+      
+
+        {{ radios({
           "idPrefix": "hear-from-nhsd",
           "name": "hear-from-nhsd",
           "fieldset": {
             "legend": {
-              "text": heading,
-              "classes": "nhsuk-fieldset__legend--m",
-              isPageHeading: true
+              "text": "Do you agree to NHS Digital contacting you about this, so you can find out about other research?",
+              "classes": "nhsuk-fieldset__legend--m"
             }
-          },
-          "hint": {
-            "text": "Select all that apply"
           },
           "items": [
             {
-              "value": "Yes, I want to be contacted about coronavirus health research for prevention and treatment",
-              "text": "Yes, I want to be contacted about coronavirus health research for prevention and treatment",
-              "checked": checked("hear-from-nhsd", "Yes, I want to be contacted about coronavirus health research for prevention and treatment")
+              "value": "Yes",
+              "text": "Yes",
+              "name": "Yes",
+              "checked": checked("hear-from-nhsd", "Yes")
             },
             {
-              "value": "Yes, I want to be contacted about other health research that do not involve coronavirus",
-              "text": "Yes, I want to be contacted about other health research that do not involve coronavirus",
-              "checked": checked("hear-from-nhsd", "Yes, I want to be contacted about other health research that do not involve coronavirus")
-            },
-            {
-              divider: "or"
-            },
-            {
-              "value": "No, I do not want to be contacted about other health research",
-              "text": "No, I do not want to be contacted about other health research",
-              "checked": checked("hear-from-nhsd", "No, I do not want to be contacted about other health research")
+              "value": "No",
+              "text": "No",
+              "name": "No",
+              "checked": checked("hear-from-nhsd", "No")
             }
           ]
         }) }}
