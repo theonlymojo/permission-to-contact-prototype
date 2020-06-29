@@ -21,7 +21,7 @@
 
           <fieldset class="nhsuk-fieldset">
             <legend class="nhsuk-fieldset__legend">
-              Is your email address {% if (data['opt-out-email']) %}{{ data['opt-out-email'] }}{% else %}{{ data['email'] }}{% endif %}?
+              Is {% if (data['opt-out-email']) %}{{ data['opt-out-email'] }}{% else %}{{ data['email'] }}{% endif %} your email address?
             </legend>
 
             <div class="nhsuk-radios">
@@ -29,14 +29,14 @@
               <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="opt-out-confirm-email-yes" name="opt-out-confirm-email" type="radio" value="Yes, that is correct">
                 <label class="nhsuk-label nhsuk-radios__label" for="opt-out-confirm-email-yes">
-                  Yes, that is my email address
+                  Yes, this is my email address
                 </label>
               </div>
 
               <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="opt-out-confirm-email-no" name="opt-out-confirm-email" type="radio" value="No, that is not my email address">
                 <label class="nhsuk-label nhsuk-radios__label" for="opt-out-confirm-email-no">
-                  No, that is not my email address
+                  No
                 </label>
               </div>
 
