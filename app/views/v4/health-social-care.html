@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% set version = "v4" %}
+{% set backLink = "work" %}
+{% set heading = "Do you work in health or social care?" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ version }}/tested" method="post" class="form">
+
+        {{ radios({
+          idPrefix: "health-social-care",
+          name: "health-social-care",
+          fieldset: {
+            legend: {
+              text: heading,
+              isPageHeading: true,
+              classes: "nhsuk-fieldset__legend--l"
+            }
+          },
+          "hint": {
+            "text": "Some examples of this are nurse, doctor, carer"
+          },
+          items: [
+            {
+              value: "Yes, I work in health or social care",
+              text: "Yes",
+              checked: checked("work", "Yes, I work in health or social care")
+            },
+            {
+              value: "No, I do not work in health or social care",
+              text: "No",
+              checked: checked("work", "No, I do not work in health or social care")
+            },
+            {
+              divider: "or"
+            },
+            {
+              "value": "I'm not sure",
+              "text": "I'm not sure",
+              "name": "I'm not sure",
+              "checked": checked("lung-disease", "I'm not sure")
+            }
+          ]
+        }) }}
+
+        {{ details({
+          "text": "Why we are asking this question",
+          "HTML": "
+            <p>We're asking this because people working in health and social care are offered coronavirus tests.</p>
+            <p>Some research studies are looking for people who often get tested.</p>
+          "
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
