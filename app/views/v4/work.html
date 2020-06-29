@@ -2,7 +2,7 @@
 
 {% set version = "v4" %}
 {% set backLink = "ethnic-group" %}
-{% set heading = "Does the work you're doing at the moment mean you have face to face contact with different people every day?" %}
+{% set heading = "At the moment, do you have face to face contact with different people every day because of your work or any volunteering you do?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
@@ -10,73 +10,57 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <form action="/{{ version }}/tested" method="post" class="form">
-        
-        {% set workOtherHtml %}
-        {{ input({
-          id: "work-other",
-          name: "work-other",
-          classes: "nhsuk-u-width-two-thirds",
-          label: {
-            text: "Tell us what work you do"
-          }
-        }) }}
-      {% endset -%}
 
-      {{ radios({
-        idPrefix: "work",
-        name: "work",
-        fieldset: {
-          legend: {
-            text: heading,
-            isPageHeading: true,
-            classes: "nhsuk-fieldset__legend--l"
-          }
-        },
-        "hint": {
-          "text": "Some examples of this are nurse, doctor, care worker, transport worker, shop worker, taxi driver, delivery worker, police officer, food factory worker"
-        },
-        items: [
-          {
-            value: "Yes, the work I'm doing at the moment means I have face to face contact with different people every day",
-            text: "Yes",
-            checked: checked("work", "Yes, the work I'm doing at the moment means I have face to face contact with different people every day")
-          },
-          {
-            value: "No, the work I'm doing at the moment means I do not have face to face contact with different people every day",
-            text: "No",
-            checked: checked("work", "No, the work I'm doing at the moment means I do not have face to face contact with different people every day")
-          },
-          {
-            divider: "or"
-          },
-          {
-            value: "I'm not working at the moment",
-            text: "I'm not working at the moment",
-            checked: checked("work", "I'm not working at the moment"),
-            label: {
-              classes: 'nhsuk-label'
+        {{ radios({
+          idPrefix: "work",
+          name: "work",
+          fieldset: {
+            legend: {
+              text: heading,
+              isPageHeading: true,
+              classes: "nhsuk-fieldset__legend--l"
             }
-          }
-        ]
-      }) }}
+          },
+          "hint": {
+            "text": "Some examples of this are nurse, doctor, care worker, transport worker, shop worker, taxi driver, delivery worker, police officer, food factory worker"
+          },
+          items: [
+            {
+              value: "Yes, the work I'm doing at the moment means I have face to face contact with different people every day",
+              text: "Yes",
+              checked: checked("work", "Yes, the work I'm doing at the moment means I have face to face contact with different people every day")
+            },
+            {
+              value: "No, the work I'm doing at the moment means I do not have face to face contact with different people every day",
+              text: "No",
+              checked: checked("work", "No, the work I'm doing at the moment means I do not have face to face contact with different people every day")
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "I'm not working at the moment",
+              text: "I'm not working at the moment",
+              checked: checked("work", "I'm not working at the moment"),
+              label: {
+                classes: 'nhsuk-label'
+              }
+            }
+          ]
+        }) }}
 
-      {{ details({
-        "text": "Why we are asking this question",
-        "HTML": "
-          <p>We're asking this because face to face contact with different people makes you more at risk of getting coronavirus. Knowing if you're more at risk can help researchers match you to a relevant trial.</p>
-        "
-      }) }}
+        {{ details({
+          "text": "Why we are asking this question",
+          "HTML": "
+            <p>We're asking this because face to face contact with different people makes you more at risk of getting coronavirus. Knowing if you're more at risk can help researchers match you to a relevant trial.</p>
+          "
+        }) }}
 
-      {{ button({
-        "text": "Continue"
-      }) }}
+        {{ button({
+          "text": "Continue"
+        }) }}
 
-
-
-        </form>
-
-
-
+      </form>
     </div>
   </div>
 {% endblock %}
