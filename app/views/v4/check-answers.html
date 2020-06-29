@@ -174,27 +174,23 @@
       </div>
 
       {% if (data['tested'] !== "No") %}
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">
-          Test results
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          {{ data['test-results'] }}
-        </dd>
-        <dd class="nhsuk-summary-list__actions">
-          <a class="nhsuk-link" href="/{{ version }}/test-results">
-            Change <span class="nhsuk-u-visually-hidden">Test results</span>
-          </a>
-        </dd>
-      </div>
-    {% endif %}
-
         <div class="nhsuk-summary-list__row">
-            
+          <dt class="nhsuk-summary-list__key">
+            Test results
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['test-results'] }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/{{ version }}/test-results">
+              Change <span class="nhsuk-u-visually-hidden">Test results</span>
+            </a>
+          </dd>
         </div>
-        </dl>
-        <h2>Health</h2>
-        <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-7">
+      {% endif %}
+      </dl>
+      <h2>Health</h2>
+      <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-7">
 
       {% if (data['sex'] == "Female") %}
       <div class="nhsuk-summary-list__row">
