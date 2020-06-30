@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% set version = "v4" %}
-{% set heading = "Sign up to be contacted for coronavirus vaccine research" %}
+{% set heading = "Sign up to be contacted for coronavirus vaccine studies" %}
 
 {% block beforeMain %}
 {% endblock %}
@@ -13,16 +13,12 @@
       <h1>{{ heading }}</h1>
 
       <p>Use this service to give permission for researchers to contact you about taking part in coronavirus (COVID-19) vaccine studies in the UK.</p>
-      <p>Vaccine studies are... [TO CLARIFY]</p>
-      <p>Research can be carried out by the NHS, or other organisations like drug companies or universities.</p>
 
       {{ warningCallout({
         "heading": "Important",
         "HTML": "<p>You are not signing up to take part in specific health study when you use this service. You are letting researchers know you're happy for them to contact you, if they think you might be suitable to take part in their research.</p>",
         "classes": "nhsuk-u-margin-bottom-6"
       }) }}
-
-      <p>Find out more about the different types of health studies at the <a href="https://www.bepartofresearch.nihr.ac.uk/">Be Part of Research</a> website.</p>
 
       <h2 class="nhsuk-heading-m">Before you start</h2>
       <p>You can use this service if you:</p>
