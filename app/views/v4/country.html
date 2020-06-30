@@ -2,7 +2,7 @@
 
 {% set version = "v4" %}
 {% set backLink = "18-or-over" %}
-{% set heading = "Do you live in the UK?" %}
+{% set heading = "Where do you live?" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
@@ -12,30 +12,51 @@
       <form action="/{{ version }}/email-interruption" method="post" class="form">
 
         {{ radios({
-        "idPrefix": "intheuk",
-        "name": "intheuk",
-        "fieldset": {
-          "legend": {
-            "text": heading,
-            "classes": "nhsuk-fieldset__legend--l",
-            "isPageHeading": true
-          }
-        },
-        "items": [
-          {
-            "value": "Yes",
-            "text": "Yes",
-            "name": "Yes",
-            "checked": checked("intheuk", "Yes")
+          "idPrefix": "country",
+          "name": "country",
+          "fieldset": {
+            "legend": {
+              "text": heading,
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
           },
-          {
-            "value": "No",
-            "text": "No",
-            "name": "No",
-            "checked": checked("intheuk", "No")
-          }
-        ]
-      }) }}
+          "items": [
+            {
+              "value": "England",
+              "text": "England",
+              "name": "England",
+              "checked": checked("country", "England")
+            },
+            {
+              "value": "Scotland",
+              "text": "Scotland",
+              "name": "Scotland",
+              "checked": checked("country", "Scotland")
+            },
+            {
+              "value": "Wales",
+              "text": "Wales",
+              "name": "Wales",
+              "checked": checked("country", "Wales")
+            },
+            {
+              "value": "Northern Ireland",
+              "text": "Northern Ireland",
+              "name": "Northern Ireland",
+              "checked": checked("country", "Northern Ireland")
+            },
+            {
+              divider: "or"
+            },
+            {
+              "value": "None of these",
+              "text": "None of these",
+              "name": "None of these",
+              "checked": checked("country", "None of these")
+            }
+          ]
+        }) }}
         
         {{ button({
           "text": "Continue"
