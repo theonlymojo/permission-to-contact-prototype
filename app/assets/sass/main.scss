@@ -49,6 +49,21 @@ h1 {
   word-break: break-word;
 }
 
+.app-brand-logo {
+  @include nhsuk-responsive-margin(2, "bottom");
+
+  display: block;
+}
+
+.app-brand-logo--nihr {
+  width: 240px;
+}
+
+.app-brand-logo--bpor {
+  width: 160px;
+}
+
+
 ///////////////////////////////////////////
 // Prototype CSS only 
 ///////////////////////////////////////////
