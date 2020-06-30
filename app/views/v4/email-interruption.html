@@ -2,7 +2,7 @@
 
 {% set version = "v4" %}
 {% set backLink = "country" %}
-{% set heading = "We need to confirm your email address before asking you any more questions" %}
+{% set heading = "We need to confirm your email address" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block content %}
@@ -11,7 +11,7 @@
 
       <div class="nhsuk-card nhsuk-card--blue nhsuk-u-padding-1">
         <div class="nhsuk-card__content">
-          <h1 class="nhsuk-card__heading nhsuk-u-margin-bottom-4 nhsuk-heading-l">{{ heading }}</h1>
+          <h1 class="nhsuk-card__heading nhsuk-u-margin-bottom-5">{{ heading }}</h1>
           <p>We will now:</p>
           <ul>
             <li>ask for your email address</li>
@@ -21,7 +21,7 @@
           <form action="email" method="post">
             <input type="submit" class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-bottom-4" value="Continue">
           </form>
-          <p>NHS Digital will keep your answers secure. <a href="#">Find out in the privacy policy how your data is protected</a>.</p>
+          <p>NHS Digital will keep your answers secure. <a href="#" target="_blank" rel="noopener noreferrer">Find out in the privacy policy how your data is protected</a> (opens in new window).</p>
         </div>
       </div>
 
