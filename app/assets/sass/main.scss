@@ -49,11 +49,11 @@ h1 {
   word-break: break-word;
 }
 
-.app-bpor-logo {
-  @include nhsuk-responsive-margin(2, "bottom");
-
+.app-nihr-logo {
+  @include nhsuk-responsive-margin(5, "bottom");
+  @include nhsuk-responsive-padding(2, "top");
   display: block;
-  width: 280px;
+  width: 240px;
 }
 
 

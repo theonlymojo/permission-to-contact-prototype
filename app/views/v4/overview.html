@@ -1,0 +1,53 @@
+{% extends 'layout-nhs-website.html' %}
+
+{% set version = "v4" %}
+{% set heading = "Coronavirus vaccine studies" %}
+
+{% block beforeMain %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ heading }}</h1>
+
+      <p>Research into vaccines is the only way to find out which vaccines will work.</p> 
+      <p>Vaccines are designed so they do not give people the infection they're protecting against, and are tested to make sure they're safe before they're tested in people.</p>
+      <p>Researchers need people to take part in their studies so they can find out which possible new vaccine works best.</p>
+      <p>On this page you can sign up to be contacted for coronavirus vaccine studies.</p>
+
+      <h2>What's involved in vaccine studies</h2>
+      <p>If you take part in vaccine studies, you may or may not be offered the vaccine.</p> 
+      <p>You'll also need to visit the hospital, or other research site, a few times over 6 to 12 months.</p> 
+      <p>At these visits, you should:</p>
+      <ul>
+        <li>be told about the research study</li>
+        <li>have the chance to ask any questions</li>
+        <li>have blood tests</li>
+      </ul>
+      <p>Between visits, you'll be asked to tell the research team about any symptoms you have.</p>
+
+      <h2>Who runs coronavirus vaccine studies</h2>
+      <p>In the UK, the research partner of the NHS is the National Institute of Health Research (NIHR). Only researchers on vaccine studies approved by NIHR will be able to contact you through this service.</p>
+
+      <img src="/images/nihr-logo.png" class="app-nihr-logo" alt="" >
+
+      <p>NIHR is currently running 2 national coronavirus vaccine studies in the UK, based at the University of Oxford and Imperial College London.</p> 
+      <p>There are strict rules on safety and confidentiality that all health research, including vaccine studies, must follow.</p> 
+      <p>You can find out more about taking part in research, and the different kinds of health research, at the <a href="https://www.bepartofresearch.nihr.ac.uk/">Be Part of Research website</a>.</p>
+
+      <h2>How do I get sign-up?</h2>
+      <p>You can sign up online.</p>
+      <p>We'll ask you some questions about yourself, and then ask your permission for researchers to contact you.</p>
+      <p>Your details will be kept secure. If a researcher thinks you may be suitable for the study they're working on, they'll contact you to tell you more about it.</p>
+      <p>If they ask you to take part in their vaccine study, you can say no. It's your choice.</p>
+
+      {{ actionLink({
+        "text": "Sign up to be contacted about coronavirus vaccine studies ",
+        "href": "/v4/"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
